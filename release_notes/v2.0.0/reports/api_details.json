@@ -1,0 +1,186 @@
+{
+  "he_summary": {
+    "job_id": "b342f682-bad1-49a6-bb29-72e8ce7fbee1",
+    "job_link": "https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=b342f682-bad1-49a6-bb29-72e8ce7fbee1",
+    "status": "failed",
+    "normalized_status": "FAILED",
+    "parser_status": "api_ok",
+    "total_tasks": 28,
+    "task_pass_count": 28,
+    "task_fail_count": 0,
+    "task_other_count": 0,
+    "selenium_reports_link": "",
+    "runtime_logs_link": ""
+  },
+  "he_tasks": [
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via",
+      "task_id": "HYPL-1665294-1780936100438929618SXZ",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=2PTH1-HCXKY-YPEFF-JDXEE"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_002_user_can_list_all_tasks_ordered_by_due_d",
+      "task_id": "HYPL-1665294-1780936100425203233FYC",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=5MNIR-QHRFH-K4J6K-M7VFJ"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the",
+      "task_id": "HYPL-1665294-1780936100421287104UNB",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=89CQU-TABL6-8MSSY-TVSWC"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app",
+      "task_id": "HYPL-1665294-1780936100433247117QZN",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=AKVPR-8QRS4-XZFOO-H5GJW"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app",
+      "task_id": "HYPL-1665294-1780936100421287104UNB",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=C9DKA-DAEWG-DFKP5-MPB9P"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_004_user_can_edit_a_task_s_title_or_due_date",
+      "task_id": "HYPL-1665294-1780936100433247117QZN",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=DGUQO-UMSD1-QAFOV-8DVYX"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app",
+      "task_id": "HYPL-1665294-1780936100425203233FYC",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=E84JZ-4AMQW-RVW0L-DYPDF"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io",
+      "task_id": "HYPL-1665294-1780936100429085983TSD",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=EOYAO-VF5GV-ABJYN-PEYYU"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_001_user_can_create_a_task_with_a_title_and",
+      "task_id": "HYPL-1665294-1780936100421287104UNB",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=JMW3S-LDZO6-QNWTW-1NQ3J"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_004_user_can_edit_a_task_s_title_or_due_date",
+      "task_id": "HYPL-1665294-1780936100433247117QZN",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=KLA9I-XOUAQ-597AB-BMBQU"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_003_user_can_mark_a_task_as_complete",
+      "task_id": "HYPL-1665294-1780936100429085983TSD",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=L1TST-KVCJI-BZS85-4LOAK"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the",
+      "task_id": "HYPL-1665294-1780936100421287104UNB",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=LAF7S-1B6SO-AOKY1-T1P1S"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_006_user_can_filter_the_task_list_by_status",
+      "task_id": "HYPL-1665294-1780936100438929618SXZ",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=LBUYQ-6SSDQ-1DMED-ZRAEW"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel",
+      "task_id": "HYPL-1665294-1780936100425203233FYC",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=LCPBK-EN7DM-9SVTS-E8FW8"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_003_user_can_mark_a_task_as_complete",
+      "task_id": "HYPL-1665294-1780936100429085983TSD",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=MOEYO-YNPB3-GWDNN-SVFXA"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app",
+      "task_id": "HYPL-1665294-1780936100425203233FYC",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=NUKFU-MYHWQ-XPGOF-I28FB"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel",
+      "task_id": "HYPL-1665294-1780936100425203233FYC",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=OBDDJ-ROWZJ-YSWQM-XBLEE"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app",
+      "task_id": "HYPL-1665294-1780936100433247117QZN",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=OHQJD-XMTIZ-FUA4B-W8AVX"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io",
+      "task_id": "HYPL-1665294-1780936100429085983TSD",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=PV5D4-SUMP4-E8DAO-GKEGX"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_002_user_can_list_all_tasks_ordered_by_due_d",
+      "task_id": "HYPL-1665294-1780936100425203233FYC",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=QK7M0-MJCHO-S4H1E-09XBR"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg",
+      "task_id": "HYPL-1665294-1780936100433247117QZN",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=R2QTT-WL2L4-ALT2U-6GXBW"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel",
+      "task_id": "HYPL-1665294-1780936100429085983TSD",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=RDPSU-BU8FE-UPCTX-DP1HX"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via",
+      "task_id": "HYPL-1665294-1780936100438929618SXZ",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=S6KMF-3UUYX-5ABN4-H74T3"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel",
+      "task_id": "HYPL-1665294-1780936100429085983TSD",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=SYOYC-VIT6B-ZWEJP-CPY7M"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_006_user_can_filter_the_task_list_by_status",
+      "task_id": "HYPL-1665294-1780936100438929618SXZ",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=UBOLY-26KZY-GLAXE-9JWAC"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_001_user_can_create_a_task_with_a_title_and",
+      "task_id": "HYPL-1665294-1780936100421287104UNB",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=Y5B3K-8V8J7-4ISIZ-VK6YU"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app",
+      "task_id": "HYPL-1665294-1780936100421287104UNB",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=Y6KXJ-PACQJ-UQTRS-0W2TV"
+    },
+    {
+      "name": "tests/playwright/test_powerapps.py::test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg",
+      "task_id": "HYPL-1665294-1780936100433247117QZN",
+      "status": "passed",
+      "session_link": "https://automation.lambdatest.com/test?testID=YPCUM-9WFCJ-OG9QK-DKVEZ"
+    }
+  ],
+  "kane_sessions": []
+}

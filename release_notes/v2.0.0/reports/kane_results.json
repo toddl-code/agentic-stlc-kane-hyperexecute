@@ -1,0 +1,230 @@
+[
+  {
+    "requirement_id": "AC-001",
+    "title": "User can create a task with a title and a",
+    "status": "passed",
+    "one_liner": "created a new task with a title and due date on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened the task creation screen.\nEntered a task title and set a due date.\nSaved the task and confirmed it appears in the tasks list with a due date shown (e.g., \u201c2026-06-10\u201d).",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_created_with_due_date": "true"
+    },
+    "duration": 96.9,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMN8DVDY77Y8SVFASVQ3/dashboard/share/US_9VTGL92GQQA9ZU4LNZ3H9H4TMN4NDE8PY47HIZF1LOEZP25XSJB8O6N162SK3LP5?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-002",
+    "title": "User can list all tasks ordered by due date, with",
+    "status": "failed",
+    "one_liner": "",
+    "summary": "{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"fb01c4f2-4535-4ce7-8160-a70cde2cde40\",\"persist\":true,\"session_name\":\"SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve\",\"test_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve_test.md\",\"output_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\output-SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve\"}",
+    "steps": [],
+    "final_state": {},
+    "duration": 3.65,
+    "link": "",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-003",
+    "title": "User can mark a task as complete",
+    "status": "passed",
+    "one_liner": "marked a task as complete on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened TaskFlow\u2019s tasks page and located the target task in the task list.\nUsed the task\u2019s completion checkbox in the \u201cDone\u201d column to mark it as complete.\nConfirmed the task now shows as completed (checkbox is checked) and remained on the TaskFlow site.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_marked_complete": "true"
+    },
+    "duration": 87.9,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMM6A5KREH93F4TT0YBM/dashboard/share/US_S7A4BG8HPZJIHYKZIV5MXLQ932IHLUU08MBYS6I9QDTP6NNT7ZXD6SDU1QJHE9DM?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-004",
+    "title": "User can edit a task's title or due date",
+    "status": "failed",
+    "one_liner": "",
+    "summary": "{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"d67d838f-d162-418a-b974-47c1a8f2672e\",\"persist\":true,\"session_name\":\"SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date\",\"test_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date_test.md\",\"output_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\output-SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date\"}",
+    "steps": [],
+    "final_state": {},
+    "duration": 3.67,
+    "link": "",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-005",
+    "title": "User can delete a task",
+    "status": "skipped",
+    "one_liner": "",
+    "summary": "skipped: scenario marked deprecated",
+    "steps": [],
+    "final_state": {},
+    "duration": null,
+    "link": "",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-006",
+    "title": "User can filter the task list by status (active /",
+    "status": "passed",
+    "one_liner": "filtered the task list by status on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened TaskFlow and went to the tasks page.\nUsed the status filter to switch between Active, Done, and All task views.\nFinished on the All view of the task list (URL shows status=all).",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks?status=all",
+      "task_filter_buttons_visible": "true"
+    },
+    "duration": 104.9,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMNKEHYSAKGTBVGYQ4G0/dashboard/share/US_L2G9GWO271CYERWRU5H7TVULAVJIQE6AY84ZTW5RDB8FG023ZLQV1KBQ55MUOTGV?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-007",
+    "title": "User can attach a colored label to a task and",
+    "status": "passed",
+    "one_liner": "applied a red label to a task and filtered the task list by that label on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened an existing task (or created one) in TaskFlow and applied a red label to it.\nUsed the label filter controls to filter the task list to show only tasks with the red label.\nEnded on the tasks page filtered by the red label (URL includes label=red), confirming the labeled task was visible in the list.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks?status=all&label=red",
+      "status_filter": "all",
+      "label_filter": "red",
+      "label_applied": "red",
+      "checkpoint_cp_final": "passed"
+    },
+    "duration": 110.7,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DS75EWTGRXD760BSSZ0D/dashboard/share/US_PWPDEQCNZBBD93L132KDGE1ZMXGNY1JGQISEODUZG26RADRT4PYKLH9FRAS0BHBX?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-008",
+    "title": "User can view archived tasks on the archive page and",
+    "status": "passed",
+    "one_liner": "archived and restored a task on taskflow-v2-0-0.vercel.app",
+    "summary": "Created a new task titled \"Archive demo task\" with due date 2026-05-20 using the Add a task form.\nArchived the \"Archive demo task\" item from the main task list.\nOpened the Archive view and confirmed \"Archive demo task\" appeared in the archived list.\nRestored \"Archive demo task\" from the Archive view.\nReturned to the main task list and verified \"Archive demo task\" was visible again in the active tasks list.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_title": "Archive demo task",
+      "due_date": "2026-05-20",
+      "listed_in_archive": "true",
+      "restored_visible_in_active_list": "true"
+    },
+    "duration": 207.8,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DS7F63A9B75Z4SMYKX61/dashboard/share/US_VOLK8IQIFKFH0RWQPBD0WC12GZRSATDV6AIRV2XOOV7LZMXXBWXHT0X9HXSUVQLF?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-009",
+    "title": "User can set a task's priority to high, medium, or",
+    "status": "passed",
+    "one_liner": "set a task priority on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened taskflow-v2-0-0.vercel.app.\nUsed the \u201cAdd a task\u201d form to set the task Priority using the dropdown (showing \u201chigh\u201d).\nCompleted the task on the same site without navigating elsewhere.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/",
+      "priority_dropdown_value": "high"
+    },
+    "duration": 88.8,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0GTKCCYGNS34PTCS58ACE/dashboard/share/US_X8R8SZ0NUHYNVJGLU3WHTCWER3B0N0WE574HU14RWXJIMMCJVXPOM81G0UIK7SYW?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-010",
+    "title": "User can change a task's priority on the edit screen",
+    "status": "passed",
+    "one_liner": "created and updated a task on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened Taskflow and used the Add a task form to create a new task titled \"Priority demo task\" with a due date of 2026-05-20.\nOpened the task\u2019s Edit link, changed its priority to High, and saved the changes.\nReturned to the tasks list and confirmed the \"Priority demo task\" row shows a High priority (HIGH) chip.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_title": "Priority demo task",
+      "due_date": "2026-05-20",
+      "priority": "High"
+    },
+    "duration": 181,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0H394HSPYAVCD7WQDSWZJ/dashboard/share/US_R1DN4B2VTED52UQE6KNZEMWMA4C6BBS6RDVTG1JJO02O7F1OW9ON2DKFDSLB7TTR?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-011",
+    "title": "User can archive all completed tasks in one click via",
+    "status": "passed",
+    "one_liner": "archived completed tasks on taskflow-v2-0-0.vercel.app",
+    "summary": "Created two tasks named \u201cBulk archive A\u201d and \u201cBulk archive B\u201d and marked both as complete.\nClicked the \u201cArchive completed\u201d button at the bottom of the task list to archive completed items.\nConfirmed on the Archive page that both \u201cBulk archive A\u201d and \u201cBulk archive B\u201d appear in the archive table (and are no longer in the active task list).",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/archive",
+      "completed_tasks_archived_bulk_archive_a_b": "true",
+      "__cp_final": "true"
+    },
+    "duration": 193.9,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0HB5W8WQFZCGQ8BYY7S9J/dashboard/share/US_18DEALYHQCOLWI2E29IJ9A28AY0PQM0HAHZCOWRFTVRAVDGYEJ3YKCO4BZFITNWI?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-012",
+    "title": "User can access taskflow under a session-prefixed url of the",
+    "status": "timeout",
+    "one_liner": "",
+    "summary": "kane-cli run wedged past 360s \u2014 killed",
+    "steps": [],
+    "final_state": {},
+    "duration": 381.6,
+    "link": "",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-013",
+    "title": "User visiting a fresh session url sees an empty task",
+    "status": "passed",
+    "one_liner": "Opened an empty TaskFlow task list on taskflow-v2-0-0.vercel.app.",
+    "summary": "Opened TaskFlow using a fresh, unique session URL.\nWaited for the Tasks page to fully render and verified the list was empty (\"No tasks.\").\nConfirmed the task creation form was available (Title field, Due date field, and an \"Add task\" button).\nNo signup, login, or registration was required to view the task list or the create-task form.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/s/0fedcba987654321a1b2c3d4e5f60718/tasks",
+      "session_url_unique": "true",
+      "empty_state_message_present": "true",
+      "create_form_title_input_available": "true",
+      "create_form_due_date_input_available": "true",
+      "create_form_add_task_button_available": "true",
+      "no_signup_login_registration_required": "true"
+    },
+    "duration": 161.8,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0KXEGCE2SWSF0EG0X8RG6/dashboard/share/US_XHIN7QARIPAPIH5I2ZAK19WEPRL0XMHLYEM79GYT6R4AULS6BRXXHTVV0J8O6NHP?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-014",
+    "title": "User visiting a url with a malformed session id (not",
+    "status": "failed",
+    "one_liner": "navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app",
+    "summary": "The run attempted to open a Taskflow \u201ctasks\u201d page using the link: https://taskflow-v2-0-0.vercel.app/s/not-a-valid-hex-uuid/tasks.\nThe page shown in the screenshots is a \u201cNot Found\u201d error page that says the requested URL was not found on the server, indicating the link/path is invalid or the workspace/session ID in the URL is not recognized.\nBecause the run landed on this error page, there were no tasks or normal page controls available to interact with, so it could not proceed with any further steps.\nAfter the initial navigation, the remaining recorded steps failed due to missing step data (\u201cstep file not found\u201d), so no additional actions were completed beyond loading the error page.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/s/not-a-valid-hex-uuid/tasks",
+      "page_message": "Not Found \u2014 The requested URL was not found on the server."
+    },
+    "duration": 252.7,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0MGW5GSWG6TD55S4FDJQE/dashboard/share/US_9V3UZBMUGO2YKRCYSXTLGR1CPEVBX9LFOE928YXA5FAIVLYBO3IMZOA7QCOXKCHT?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  },
+  {
+    "requirement_id": "AC-015",
+    "title": "Tasks, archives, labels, and priorities created under one session are",
+    "status": "passed",
+    "one_liner": "viewed the Session B task list on taskflow-v2-0-0.vercel.app",
+    "summary": "Opened the Taskflow app and navigated to the Tasks page for Session B.\nChecked the task list under Session B and it showed an empty state (\u201cNo tasks.\u201d).\nConfirmed Session B\u2019s task list did not include the \u201cSession A task,\u201d verifying tasks are isolated between sessions.",
+    "steps": [],
+    "final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/s/0fedcba987654321a1b2c3d4e5f60718/tasks",
+      "session_b_task_list_empty_state": "No tasks.",
+      "session_b_list_excludes_session_a_task": "true"
+    },
+    "duration": 140.9,
+    "link": "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0Q0486Y175RGX5JJHHQ16/dashboard/share/US_1PX41S3OV8KKCVR90Q3JMNA9XTRDWCEKUOB8W7S85T6Y1JOJLVRB6HB1J6F84E2Z?type=summary&agentView=true&fqdn=summary-page",
+    "url": "https://taskflow-v2-0-0.vercel.app/"
+  }
+]

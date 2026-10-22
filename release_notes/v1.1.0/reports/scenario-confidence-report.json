@@ -2,23 +2,29 @@
   "summary": {
     "total_requirements": 8,
     "by_confidence_level": {
-      "HIGH": 7,
+      "HIGH": 2,
       "MEDIUM": 0,
-      "LOW": 0,
+      "LOW": 5,
       "DEPRECATED": 1
     },
-    "high_confidence_count": 7,
-    "critical_gap_count": 0,
+    "high_confidence_count": 2,
+    "critical_gap_count": 5,
     "missing_negative_coverage": 7,
     "missing_edge_case_coverage": 8,
     "kane_failed_requirements": 0,
     "no_mobile_coverage": 8,
     "quality_signals": {
-      "confidence_gate_passed": true,
-      "high_criticality_low_confidence": [],
+      "confidence_gate_passed": false,
+      "high_criticality_low_confidence": [
+        "SC-001",
+        "SC-002",
+        "SC-003",
+        "SC-004",
+        "SC-008"
+      ],
       "missing_negative_coverage_count": 7
     },
-    "analyzed_at": "2026-05-18T05:06:51.954775+00:00"
+    "analyzed_at": "2026-05-18T16:35:41.563563+00:00"
   },
   "records": [
     {
@@ -26,10 +32,10 @@
       "scenario_id": "SC-001",
       "scenario_status": "active",
       "acceptance_criterion": "User can create a task with a title and a due date",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
       "kane_status": "passed",
-      "confidence_level": "HIGH",
+      "confidence_level": "LOW",
       "coverage_dimensions": {
         "happy_path": true,
         "negative": false,
@@ -38,16 +44,19 @@
         "real_body": false
       },
       "coverage_gaps": [
-        "Missing negative/error scenario coverage"
+        "Missing negative/error scenario coverage",
+        "Missing edge-case coverage for high-criticality feature",
+        "No mobile coverage specified"
       ],
       "recommendations": [
         "Add scenario: 'User can create a task with a title and a due date' with invalid/error conditions",
+        "Add boundary condition test cases",
         "Consider adding mobile viewport test"
       ],
-      "confidence_reason": "Missing negative/error scenario coverage",
+      "confidence_reason": "Missing negative/error scenario coverage; Missing edge-case coverage for high-criticality feature; No mobile coverage specified",
       "risk_assessment": {
-        "criticality": "LOW",
-        "risk_level": "LOW"
+        "criticality": "HIGH",
+        "risk_level": "HIGH"
       }
     },
     {
@@ -55,10 +64,10 @@
       "scenario_id": "SC-002",
       "scenario_status": "active",
       "acceptance_criterion": "User can list all tasks ordered by due date, with overdue tasks pinned to the top",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "TASK_LIST",
+      "criticality": "HIGH",
       "kane_status": "passed",
-      "confidence_level": "HIGH",
+      "confidence_level": "LOW",
       "coverage_dimensions": {
         "happy_path": true,
         "negative": false,
@@ -67,16 +76,19 @@
         "real_body": false
       },
       "coverage_gaps": [
-        "Missing negative/error scenario coverage"
+        "Missing negative/error scenario coverage",
+        "Missing edge-case coverage for high-criticality feature",
+        "No mobile coverage specified"
       ],
       "recommendations": [
         "Add scenario: 'User can list all tasks ordered by due date, with overdue ta' with invalid/error conditions",
+        "Add boundary condition test cases",
         "Consider adding mobile viewport test"
       ],
-      "confidence_reason": "Missing negative/error scenario coverage",
+      "confidence_reason": "Missing negative/error scenario coverage; Missing edge-case coverage for high-criticality feature; No mobile coverage specified",
       "risk_assessment": {
-        "criticality": "LOW",
-        "risk_level": "LOW"
+        "criticality": "HIGH",
+        "risk_level": "HIGH"
       }
     },
     {
@@ -84,10 +96,10 @@
       "scenario_id": "SC-003",
       "scenario_status": "active",
       "acceptance_criterion": "User can mark a task as complete",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
       "kane_status": "passed",
-      "confidence_level": "HIGH",
+      "confidence_level": "LOW",
       "coverage_dimensions": {
         "happy_path": true,
         "negative": false,
@@ -96,16 +108,19 @@
         "real_body": false
       },
       "coverage_gaps": [
-        "Missing negative/error scenario coverage"
+        "Missing negative/error scenario coverage",
+        "Missing edge-case coverage for high-criticality feature",
+        "No mobile coverage specified"
       ],
       "recommendations": [
         "Add scenario: 'User can mark a task as complete' with invalid/error conditions",
+        "Add boundary condition test cases",
         "Consider adding mobile viewport test"
       ],
-      "confidence_reason": "Missing negative/error scenario coverage",
+      "confidence_reason": "Missing negative/error scenario coverage; Missing edge-case coverage for high-criticality feature; No mobile coverage specified",
       "risk_assessment": {
-        "criticality": "LOW",
-        "risk_level": "LOW"
+        "criticality": "HIGH",
+        "risk_level": "HIGH"
       }
     },
     {
@@ -113,10 +128,10 @@
       "scenario_id": "SC-004",
       "scenario_status": "active",
       "acceptance_criterion": "User can edit a task's title or due date",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
       "kane_status": "passed",
-      "confidence_level": "HIGH",
+      "confidence_level": "LOW",
       "coverage_dimensions": {
         "happy_path": true,
         "negative": false,
@@ -125,23 +140,26 @@
         "real_body": false
       },
       "coverage_gaps": [
-        "Missing negative/error scenario coverage"
+        "Missing negative/error scenario coverage",
+        "Missing edge-case coverage for high-criticality feature",
+        "No mobile coverage specified"
       ],
       "recommendations": [
         "Add scenario: 'User can edit a task's title or due date' with invalid/error conditions",
+        "Add boundary condition test cases",
         "Consider adding mobile viewport test"
       ],
-      "confidence_reason": "Missing negative/error scenario coverage",
+      "confidence_reason": "Missing negative/error scenario coverage; Missing edge-case coverage for high-criticality feature; No mobile coverage specified",
       "risk_assessment": {
-        "criticality": "LOW",
-        "risk_level": "LOW"
+        "criticality": "HIGH",
+        "risk_level": "HIGH"
       }
     },
     {
       "requirement_id": "AC-005",
       "scenario_id": "SC-005",
       "function_name": "test_sc_005_user_can_delete_a_task",
-      "feature": "GENERAL",
+      "feature": "TASK_CRUD",
       "kane_status": "skipped",
       "confidence_level": "DEPRECATED",
       "coverage_dimensions": {},
@@ -158,8 +176,8 @@
       "scenario_id": "SC-006",
       "scenario_status": "active",
       "acceptance_criterion": "User can filter the task list by status (active / done / all)",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "FILTER",
+      "criticality": "MEDIUM",
       "kane_status": "passed",
       "confidence_level": "HIGH",
       "coverage_dimensions": {
@@ -178,7 +196,7 @@
       ],
       "confidence_reason": "Missing negative/error scenario coverage",
       "risk_assessment": {
-        "criticality": "LOW",
+        "criticality": "MEDIUM",
         "risk_level": "LOW"
       }
     },
@@ -187,8 +205,8 @@
       "scenario_id": "SC-007",
       "scenario_status": "active",
       "acceptance_criterion": "User can attach a colored label to a task and filter by label",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "LABELS",
+      "criticality": "MEDIUM",
       "kane_status": "passed",
       "confidence_level": "HIGH",
       "coverage_dimensions": {
@@ -207,7 +225,7 @@
       ],
       "confidence_reason": "Missing negative/error scenario coverage",
       "risk_assessment": {
-        "criticality": "LOW",
+        "criticality": "MEDIUM",
         "risk_level": "LOW"
       }
     },
@@ -216,10 +234,10 @@
       "scenario_id": "SC-008",
       "scenario_status": "active",
       "acceptance_criterion": "User can view archived tasks on the Archive page and restore them to the active list",
-      "feature": "GENERAL",
-      "criticality": "LOW",
+      "feature": "ARCHIVE",
+      "criticality": "HIGH",
       "kane_status": "passed",
-      "confidence_level": "HIGH",
+      "confidence_level": "LOW",
       "coverage_dimensions": {
         "happy_path": true,
         "negative": false,
@@ -228,16 +246,19 @@
         "real_body": false
       },
       "coverage_gaps": [
-        "Missing negative/error scenario coverage"
+        "Missing negative/error scenario coverage",
+        "Missing edge-case coverage for high-criticality feature",
+        "No mobile coverage specified"
       ],
       "recommendations": [
         "Add scenario: 'User can view archived tasks on the Archive page and restore' with invalid/error conditions",
+        "Add boundary condition test cases",
         "Consider adding mobile viewport test"
       ],
-      "confidence_reason": "Missing negative/error scenario coverage",
+      "confidence_reason": "Missing negative/error scenario coverage; Missing edge-case coverage for high-criticality feature; No mobile coverage specified",
       "risk_assessment": {
-        "criticality": "LOW",
-        "risk_level": "LOW"
+        "criticality": "HIGH",
+        "risk_level": "HIGH"
       }
     }
   ]

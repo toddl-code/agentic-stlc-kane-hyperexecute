@@ -3,122 +3,97 @@
     "id": "AC-001",
     "title": "User can create a task with a title and a",
     "description": "User can create a task with a title and a due date",
-    "url": "https://nosecretformula.vercel.app/",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
     "kane_status": "passed",
-    "kane_one_liner": "created a new task with a due date on nosecretformula.vercel.app",
-    "kane_summary": "Opened nosecretformula.vercel.app and went to the Tasks page.\nUsed the task creation form to add a new task by entering a title and choosing a due date.\nConfirmed the new task appeared in the tasks list with a due date shown (2026-05-19).",
-    "kane_steps": [
-      "navigate: Navigate to https://nosecretformula.vercel.app/ (the target site for creating a ",
-      "type: Filled 'Test task' via DOM locator: role=textbox[name='Title']",
-      "type: Filled '2026-05-19' via DOM locator: role=textbox[name='Due date']",
-      "click: Clicked via DOM locator: role=button[name='Add task']",
-      "analyze: ANALYZE(visual, 'Is there a task listed in the table that shows a due date?', ke",
-      "assert: On https://nosecretformula.vercel.app/ \u2014 User can create a task with a title and"
-    ],
+    "kane_one_liner": "created a new task with a title and due date on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened the task creation screen.\nEntered a task title and set a due date.\nSaved the task and confirmed it appears in the tasks list with a due date shown (e.g., \u201c2026-06-10\u201d).",
+    "kane_steps": [],
     "kane_final_state": {
-      "url": "https://nosecretformula.vercel.app/tasks",
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
       "task_created_with_due_date": "true"
     },
-    "kane_duration": 87,
-    "kane_links": [],
-    "kane_session_id": "a6cf21fb-3680-4178-852f-88e853e890b2",
+    "kane_duration": 96.9,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMN8DVDY77Y8SVFASVQ3/dashboard/share/US_9VTGL92GQQA9ZU4LNZ3H9H4TMN4NDE8PY47HIZF1LOEZP25XSJB8O6N162SK3LP5?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_001",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_001_user_can_create_a_task_with_a_title_and_test.md",
-    "kane_replay_decision": "replay",
+    "kane_replay_decision": "rerecord",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-002",
     "title": "User can list all tasks ordered by due date, with",
     "description": "User can list all tasks ordered by due date, with overdue tasks pinned to the top",
-    "url": "https://nosecretformula.vercel.app/",
-    "kane_status": "passed",
-    "kane_one_liner": "created two tasks on nosecretformula.vercel.app",
-    "kane_summary": "Opened the No Secret Formula Tasks page.\nAdded a task named \"Overdue 002\" with due date 2026-05-10 using the Add a task form.\nAdded a second task named \"Future 002\" with due date 2026-05-25 using the Add a task form.\nVerified the task list order: \"Overdue 002\" appears at the top of the list above \"Future 002\" (since 2026-05-10 is past due relative to 2026-05-17).",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "failed",
+    "kane_one_liner": "",
+    "kane_summary": "{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"fb01c4f2-4535-4ce7-8160-a70cde2cde40\",\"persist\":true,\"session_name\":\"SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve\",\"test_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve_test.md\",\"output_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\output-SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve\"}",
     "kane_steps": [],
-    "kane_final_state": {
-      "url": "https://nosecretformula.vercel.app/tasks",
-      "overdue_002_above_future_002": "true",
-      "overdue_002_first_in_list": "true"
-    },
-    "kane_duration": 194.2,
+    "kane_final_state": {},
+    "kane_duration": 3.65,
     "kane_links": [],
-    "kane_session_id": "",
+    "kane_session_id": "fb01c4f2-4535-4ce7-8160-a70cde2cde40",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_002",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_002_sorted_tasks_by_due_date_on_nosecretformula_vercel_app_test.md",
-    "kane_replay_decision": "record",
+    "kane_replay_decision": "rerecord",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-003",
     "title": "User can mark a task as complete",
     "description": "User can mark a task as complete",
-    "url": "https://nosecretformula.vercel.app/",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
     "kane_status": "passed",
-    "kane_one_liner": "marked a task as complete on nosecretformula.vercel.app",
-    "kane_summary": "Opened nosecretformula.vercel.app and went to the Tasks page.\nFound an existing task in the task list and used its completion checkbox to mark it as complete.\nConfirmed that at least one task now shows as completed (checkbox visibly checked).",
-    "kane_steps": [
-      "navigate: navigate to https://nosecretformula.vercel.app/",
-      "type: Filled 'Test task' via DOM locator: role=textbox[name='Title']",
-      "click: Clicked via DOM locator: role=button[name='Add task']",
-      "click: Clicked via DOM locator: role=button[name='\u2610']",
-      "analyze: ANALYZE(visual, 'Is there a task row with its completion checkbox checked (selec",
-      "assert: On https://nosecretformula.vercel.app/ \u2014 User can mark a task as complete"
-    ],
+    "kane_one_liner": "marked a task as complete on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened TaskFlow\u2019s tasks page and located the target task in the task list.\nUsed the task\u2019s completion checkbox in the \u201cDone\u201d column to mark it as complete.\nConfirmed the task now shows as completed (checkbox is checked) and remained on the TaskFlow site.",
+    "kane_steps": [],
     "kane_final_state": {
-      "url": "https://nosecretformula.vercel.app/tasks",
-      "task_completed": "true"
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_marked_complete": "true"
     },
-    "kane_duration": 91.5,
-    "kane_links": [],
-    "kane_session_id": "0aee9865-18dd-466a-9675-5ddc3c73b23b",
+    "kane_duration": 87.9,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMM6A5KREH93F4TT0YBM/dashboard/share/US_S7A4BG8HPZJIHYKZIV5MXLQ932IHLUU08MBYS6I9QDTP6NNT7ZXD6SDU1QJHE9DM?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_003",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_003_user_can_mark_a_task_as_complete_test.md",
-    "kane_replay_decision": "replay",
+    "kane_replay_decision": "rerecord",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-004",
     "title": "User can edit a task's title or due date",
     "description": "User can edit a task's title or due date",
-    "url": "https://nosecretformula.vercel.app/",
-    "kane_status": "passed",
-    "kane_one_liner": "opened a task edit form on nosecretformula.vercel.app",
-    "kane_summary": "Navigated to nosecretformula.vercel.app to edit an existing task.\nOpened the edit screen for Task #1 and confirmed the \u201cEdit task #1\u201d form was displayed with a Title field showing \u201cTest task\u201d.\nThe run finished on the task edit page (https://nosecretformula.vercel.app/tasks/1/edit).",
-    "kane_steps": [
-      "navigate: Navigate to https://nosecretformula.vercel.app/ as specified in the objective.",
-      "type: Filled 'Test task' via DOM locator: role=textbox[name='Title']",
-      "click: Clicked via DOM locator: role=button[name='Add task']",
-      "click: Clicked via DOM locator: role=link[name='Edit']",
-      "analyze: ANALYZE(visual, 'Is the \"Edit task\" form visible with a \"Title\" input field?', k",
-      "assert: On https://nosecretformula.vercel.app/ \u2014 User can edit a task's title or due dat"
-    ],
-    "kane_final_state": {
-      "url": "https://nosecretformula.vercel.app/tasks/1/edit",
-      "edit_form_visible": "true",
-      "task_being_edited": "Task #1"
-    },
-    "kane_duration": 100.8,
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "failed",
+    "kane_one_liner": "",
+    "kane_summary": "{\"type\":\"recording_state\",\"enabled\":true,\"session_id\":\"d67d838f-d162-418a-b974-47c1a8f2672e\",\"persist\":true,\"session_name\":\"SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date\",\"test_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date_test.md\",\"output_path\":\"C:\\\\Projects\\\\agentic-stlc-kane-hyperexecute\\\\.testmuai\\\\tests\\\\output-SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date\"}",
+    "kane_steps": [],
+    "kane_final_state": {},
+    "kane_duration": 3.67,
     "kane_links": [],
-    "kane_session_id": "aa01aecd-c452-4ec3-9c35-a299960a869f",
+    "kane_session_id": "d67d838f-d162-418a-b974-47c1a8f2672e",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_004",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_004_user_can_edit_a_task_s_title_or_due_date_test.md",
-    "kane_replay_decision": "replay",
+    "kane_replay_decision": "rerecord",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-005",
     "title": "User can delete a task",
     "description": "User can delete a task",
-    "url": "https://nosecretformula.vercel.app/",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
     "kane_status": "skipped",
     "kane_one_liner": "",
     "kane_summary": "skipped: scenario marked deprecated",
@@ -132,92 +107,266 @@
     "kane_replay_decision": "skip",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-006",
     "title": "User can filter the task list by status (active /",
     "description": "User can filter the task list by status (active / done / all)",
-    "url": "https://nosecretformula.vercel.app/",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
     "kane_status": "passed",
-    "kane_one_liner": "filtered tasks by status on nosecretformula.vercel.app",
-    "kane_summary": "Opened nosecretformula.vercel.app and navigated to the Tasks page.\nUsed the status filter controls (Active, Done, All) to switch task list views.\nEnded with the \"Done\" filter selected, showing the done tasks list (URL reflects status=done).",
-    "kane_steps": [
-      "navigate: Navigate to https://nosecretformula.vercel.app/ to access the task list app that",
-      "type: Filled 'Test task' via DOM locator: role=textbox[name='Title']",
-      "click: Clicked via DOM locator: role=link[name='Done']",
-      "analyze: ANALYZE(visual, 'Is the \"Done\" status filter button selected in the task list fi",
-      "assert: On https://nosecretformula.vercel.app/ \u2014 User can filter the task list by status"
-    ],
+    "kane_one_liner": "filtered the task list by status on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened TaskFlow and went to the tasks page.\nUsed the status filter to switch between Active, Done, and All task views.\nFinished on the All view of the task list (URL shows status=all).",
+    "kane_steps": [],
     "kane_final_state": {
-      "url": "https://nosecretformula.vercel.app/tasks?status=done",
-      "selected_status_filter": "done"
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks?status=all",
+      "task_filter_buttons_visible": "true"
     },
-    "kane_duration": 89.8,
-    "kane_links": [],
-    "kane_session_id": "a7e545ab-3d10-4d55-b514-52bc4c168af3",
+    "kane_duration": 104.9,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMNKEHYSAKGTBVGYQ4G0/dashboard/share/US_L2G9GWO271CYERWRU5H7TVULAVJIQE6AY84ZTW5RDB8FG023ZLQV1KBQ55MUOTGV?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_006",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_006_user_can_filter_the_task_list_by_status_test.md",
-    "kane_replay_decision": "replay",
+    "kane_replay_decision": "rerecord",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-007",
     "title": "User can attach a colored label to a task and",
     "description": "User can attach a colored label to a task and filter by label",
-    "url": "https://nosecretformula.vercel.app/",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
     "kane_status": "passed",
-    "kane_one_liner": "filtered tasks by a red label on nosecretformula.vercel.app",
-    "kane_summary": "Opened nosecretformula.vercel.app and went to the Tasks page.\nCreated or selected a task and added a red colored label to it (the task shown was \u201cLabeled demo task\u201d).\nUsed the label filter controls to show only tasks with the red label, ending on the filtered tasks list.",
-    "kane_steps": [
-      "navigate: Navigate to https://nosecretformula.vercel.app/ in the current tab",
-      "type: Filled 'Labeled demo task' via DOM locator: role=textbox[name='Title']",
-      "select: Selected 'red' via DOM locator: role=combobox[name='Label']",
-      "click: Clicked via DOM locator: role=button[name='Add task']",
-      "click: Clicked via DOM locator: role=link[name='red']",
-      "analyze: ANALYZE(visual, 'Is there a task row showing a colored label pill in the Label c",
-      "assert: On https://nosecretformula.vercel.app/ \u2014 User can attach a colored label to a ta"
-    ],
+    "kane_one_liner": "applied a red label to a task and filtered the task list by that label on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened an existing task (or created one) in TaskFlow and applied a red label to it.\nUsed the label filter controls to filter the task list to show only tasks with the red label.\nEnded on the tasks page filtered by the red label (URL includes label=red), confirming the labeled task was visible in the list.",
+    "kane_steps": [],
     "kane_final_state": {
-      "url": "https://nosecretformula.vercel.app/tasks?status=all&label=red",
-      "task_status_filter": "all",
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks?status=all&label=red",
+      "status_filter": "all",
       "label_filter": "red",
-      "labeled_task": "Labeled demo task (label: red)"
+      "label_applied": "red",
+      "checkpoint_cp_final": "passed"
     },
-    "kane_duration": 106.4,
-    "kane_links": [],
-    "kane_session_id": "295fba7d-6b5f-4639-a1a9-bda96be1ac1e",
+    "kane_duration": 110.7,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DS75EWTGRXD760BSSZ0D/dashboard/share/US_PWPDEQCNZBBD93L132KDGE1ZMXGNY1JGQISEODUZG26RADRT4PYKLH9FRAS0BHBX?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_007",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_007_user_can_attach_a_colored_label_to_a_task_test.md",
-    "kane_replay_decision": "replay",
+    "kane_replay_decision": "rerecord",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
   },
   {
     "id": "AC-008",
     "title": "User can view archived tasks on the archive page and",
     "description": "User can view archived tasks on the Archive page and restore them to the active list",
-    "url": "https://nosecretformula.vercel.app/",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
     "kane_status": "passed",
-    "kane_one_liner": "archived and restored a task on nosecretformula.vercel.app",
-    "kane_summary": "Created a new task titled \"Archive demo task\" with due date 2026-05-20 on the main task list.\nArchived the \"Archive demo task\" from its row in the task list.\nOpened the Archive page and confirmed \"Archive demo task\" appeared there.\nRestored \"Archive demo task\" from the Archive page.\nReturned to the main task list and confirmed the restored task was visible in the active list (and did not delete or re-archive it).",
+    "kane_one_liner": "archived and restored a task on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Created a new task titled \"Archive demo task\" with due date 2026-05-20 using the Add a task form.\nArchived the \"Archive demo task\" item from the main task list.\nOpened the Archive view and confirmed \"Archive demo task\" appeared in the archived list.\nRestored \"Archive demo task\" from the Archive view.\nReturned to the main task list and verified \"Archive demo task\" was visible again in the active tasks list.",
     "kane_steps": [],
     "kane_final_state": {
-      "final_url": "https://nosecretformula.vercel.app/tasks",
-      "archive_demo_task_listed_in_archive": "true",
-      "archive_demo_task_visible_in_active_list": "true"
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_title": "Archive demo task",
+      "due_date": "2026-05-20",
+      "listed_in_archive": "true",
+      "restored_visible_in_active_list": "true"
     },
-    "kane_duration": 240.1,
-    "kane_links": [],
+    "kane_duration": 207.8,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DS7F63A9B75Z4SMYKX61/dashboard/share/US_VOLK8IQIFKFH0RWQPBD0WC12GZRSATDV6AIRV2XOOV7LZMXXBWXHT0X9HXSUVQLF?type=summary&agentView=true&fqdn=summary-page"
+    ],
     "kane_session_id": "",
     "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_008",
     "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_008_user_can_view_archived_tasks_on_the_archive_page_and_restore_test.md",
+    "kane_replay_decision": "rerecord",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-009",
+    "title": "User can set a task's priority to high, medium, or",
+    "description": "User can set a task's priority to High, Medium, or Low (or leave it unset)",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "passed",
+    "kane_one_liner": "set a task priority on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened taskflow-v2-0-0.vercel.app.\nUsed the \u201cAdd a task\u201d form to set the task Priority using the dropdown (showing \u201chigh\u201d).\nCompleted the task on the same site without navigating elsewhere.",
+    "kane_steps": [],
+    "kane_final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/",
+      "priority_dropdown_value": "high"
+    },
+    "kane_duration": 88.8,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0GTKCCYGNS34PTCS58ACE/dashboard/share/US_X8R8SZ0NUHYNVJGLU3WHTCWER3B0N0WE574HU14RWXJIMMCJVXPOM81G0UIK7SYW?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_009",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_009_set_a_task_priority_on_nosecretformula_vercel_app_test.md",
     "kane_replay_decision": "record",
     "kane_drift_retries": 0,
     "kane_drift_history": [],
-    "last_analyzed": "2026-05-18"
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-010",
+    "title": "User can change a task's priority on the edit screen",
+    "description": "User can change a task's priority on the edit screen",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "passed",
+    "kane_one_liner": "created and updated a task on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened Taskflow and used the Add a task form to create a new task titled \"Priority demo task\" with a due date of 2026-05-20.\nOpened the task\u2019s Edit link, changed its priority to High, and saved the changes.\nReturned to the tasks list and confirmed the \"Priority demo task\" row shows a High priority (HIGH) chip.",
+    "kane_steps": [],
+    "kane_final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/tasks",
+      "task_title": "Priority demo task",
+      "due_date": "2026-05-20",
+      "priority": "High"
+    },
+    "kane_duration": 181,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0H394HSPYAVCD7WQDSWZJ/dashboard/share/US_R1DN4B2VTED52UQE6KNZEMWMA4C6BBS6RDVTG1JJO02O7F1OW9ON2DKFDSLB7TTR?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_010",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_010_updated_a_task_s_priority_on_nosecretformula_vercel_app_test.md",
+    "kane_replay_decision": "record",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-011",
+    "title": "User can archive all completed tasks in one click via",
+    "description": "User can archive all completed tasks in one click via an \"Archive completed\" button at the bottom of the task list",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "passed",
+    "kane_one_liner": "archived completed tasks on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Created two tasks named \u201cBulk archive A\u201d and \u201cBulk archive B\u201d and marked both as complete.\nClicked the \u201cArchive completed\u201d button at the bottom of the task list to archive completed items.\nConfirmed on the Archive page that both \u201cBulk archive A\u201d and \u201cBulk archive B\u201d appear in the archive table (and are no longer in the active task list).",
+    "kane_steps": [],
+    "kane_final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/archive",
+      "completed_tasks_archived_bulk_archive_a_b": "true",
+      "__cp_final": "true"
+    },
+    "kane_duration": 193.9,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0HB5W8WQFZCGQ8BYY7S9J/dashboard/share/US_18DEALYHQCOLWI2E29IJ9A28AY0PQM0HAHZCOWRFTVRAVDGYEJ3YKCO4BZFITNWI?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_011",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_011_verified_archived_tasks_on_nosecretformula_vercel_app_test.md",
+    "kane_replay_decision": "record",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-012",
+    "title": "User can access taskflow under a session-prefixed url of the",
+    "description": "User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "timeout",
+    "kane_one_liner": "",
+    "kane_summary": "kane-cli run wedged past 360s \u2014 killed",
+    "kane_steps": [],
+    "kane_final_state": {},
+    "kane_duration": 381.6,
+    "kane_links": [],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_012",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the_test.md",
+    "kane_replay_decision": "record",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-013",
+    "title": "User visiting a fresh session url sees an empty task",
+    "description": "User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "passed",
+    "kane_one_liner": "Opened an empty TaskFlow task list on taskflow-v2-0-0.vercel.app.",
+    "kane_summary": "Opened TaskFlow using a fresh, unique session URL.\nWaited for the Tasks page to fully render and verified the list was empty (\"No tasks.\").\nConfirmed the task creation form was available (Title field, Due date field, and an \"Add task\" button).\nNo signup, login, or registration was required to view the task list or the create-task form.",
+    "kane_steps": [],
+    "kane_final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/s/0fedcba987654321a1b2c3d4e5f60718/tasks",
+      "session_url_unique": "true",
+      "empty_state_message_present": "true",
+      "create_form_title_input_available": "true",
+      "create_form_due_date_input_available": "true",
+      "create_form_add_task_button_available": "true",
+      "no_signup_login_registration_required": "true"
+    },
+    "kane_duration": 161.8,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0KXEGCE2SWSF0EG0X8RG6/dashboard/share/US_XHIN7QARIPAPIH5I2ZAK19WEPRL0XMHLYEM79GYT6R4AULS6BRXXHTVV0J8O6NHP?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_013",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_013_user_visiting_a_fresh_session_url_sees_an_empty_task_list_wi_test.md",
+    "kane_replay_decision": "record",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-014",
+    "title": "User visiting a url with a malformed session id (not",
+    "description": "User visiting a URL with a malformed session ID (not the literal \"default\" and not a 32-character lowercase hex string) receives an HTTP 404 response",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "failed",
+    "kane_one_liner": "navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "The run attempted to open a Taskflow \u201ctasks\u201d page using the link: https://taskflow-v2-0-0.vercel.app/s/not-a-valid-hex-uuid/tasks.\nThe page shown in the screenshots is a \u201cNot Found\u201d error page that says the requested URL was not found on the server, indicating the link/path is invalid or the workspace/session ID in the URL is not recognized.\nBecause the run landed on this error page, there were no tasks or normal page controls available to interact with, so it could not proceed with any further steps.\nAfter the initial navigation, the remaining recorded steps failed due to missing step data (\u201cstep file not found\u201d), so no additional actions were completed beyond loading the error page.",
+    "kane_steps": [],
+    "kane_final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/s/not-a-valid-hex-uuid/tasks",
+      "page_message": "Not Found \u2014 The requested URL was not found on the server."
+    },
+    "kane_duration": 252.7,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0MGW5GSWG6TD55S4FDJQE/dashboard/share/US_9V3UZBMUGO2YKRCYSXTLGR1CPEVBX9LFOE928YXA5FAIVLYBO3IMZOA7QCOXKCHT?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_014",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_014_user_visiting_a_url_with_a_malformed_session_id_not_the_lite_test.md",
+    "kane_replay_decision": "record",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
+  },
+  {
+    "id": "AC-015",
+    "title": "Tasks, archives, labels, and priorities created under one session are",
+    "description": "Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session",
+    "url": "https://taskflow-v2-0-0.vercel.app/",
+    "kane_status": "passed",
+    "kane_one_liner": "viewed the Session B task list on taskflow-v2-0-0.vercel.app",
+    "kane_summary": "Opened the Taskflow app and navigated to the Tasks page for Session B.\nChecked the task list under Session B and it showed an empty state (\u201cNo tasks.\u201d).\nConfirmed Session B\u2019s task list did not include the \u201cSession A task,\u201d verifying tasks are isolated between sessions.",
+    "kane_steps": [],
+    "kane_final_state": {
+      "url": "https://taskflow-v2-0-0.vercel.app/s/0fedcba987654321a1b2c3d4e5f60718/tasks",
+      "session_b_task_list_empty_state": "No tasks.",
+      "session_b_list_excludes_session_a_task": "true"
+    },
+    "kane_duration": 140.9,
+    "kane_links": [
+      "https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0Q0486Y175RGX5JJHHQ16/dashboard/share/US_1PX41S3OV8KKCVR90Q3JMNA9XTRDWCEKUOB8W7S85T6Y1JOJLVRB6HB1J6F84E2Z?type=summary&agentView=true&fqdn=summary-page"
+    ],
+    "kane_session_id": "",
+    "kane_code_export_dir": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\playwright\\exported\\sc_015",
+    "kane_asset_path": "C:\\Projects\\agentic-stlc-kane-hyperexecute\\tests\\kane\\general\\sc_015_tasks_archives_labels_and_priorities_created_under_one_sessi_test.md",
+    "kane_replay_decision": "record",
+    "kane_drift_retries": 0,
+    "kane_drift_history": [],
+    "last_analyzed": "2026-06-08"
   }
 ]

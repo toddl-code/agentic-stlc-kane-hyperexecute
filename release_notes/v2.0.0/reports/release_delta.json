@@ -1,0 +1,77 @@
+{
+  "from_release": "v1.2.0",
+  "to_release": "v2.0.0",
+  "from_lock_path": "release_notes\\v1.2.0.lock.json",
+  "to_lock_path": "release_notes\\v2.0.0.lock.json",
+  "threshold": 0.5,
+  "generated_at": "2026-06-08T16:32:08.450996+00:00",
+  "summary": {
+    "ADD": 4,
+    "EDIT": 0,
+    "DELETE": 0,
+    "UNMATCHED": 2
+  },
+  "operations": [
+    {
+      "op": "ADD",
+      "item_text": "User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-012",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-012 and let Stage 1 record the asset",
+      "prev_text": null
+    },
+    {
+      "op": "ADD",
+      "item_text": "User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-013",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-013 and let Stage 1 record the asset",
+      "prev_text": null
+    },
+    {
+      "op": "ADD",
+      "item_text": "User visiting a URL with a malformed session ID (not the literal \"default\" and not a 32-character lowercase hex string) receives an HTTP 404 response",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-014",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-014 and let Stage 1 record the asset",
+      "prev_text": null
+    },
+    {
+      "op": "ADD",
+      "item_text": "Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-015",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-015 and let Stage 1 record the asset",
+      "prev_text": null
+    }
+  ],
+  "unmatched_items": [
+    {
+      "section": "Changed",
+      "text": "Task list and Archive page now reflect only data from the active session",
+      "issue": null,
+      "best_score": 0.267,
+      "reason": "no scenario cleared similarity threshold 0.5"
+    },
+    {
+      "section": "Changed",
+      "text": "The \"Archive completed\" bulk action and its count reflect only completed tasks in the active session",
+      "issue": null,
+      "best_score": 0.176,
+      "reason": "no scenario cleared similarity threshold 0.5"
+    }
+  ],
+  "applied": false
+}

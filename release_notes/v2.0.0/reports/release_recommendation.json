@@ -1,0 +1,16 @@
+{
+  "verdict": "RED",
+  "pass_rate": 71.4,
+  "requirements_covered": 15,
+  "requirements_total": 15,
+  "executed": 14,
+  "passed": 10,
+  "failing_scenarios": [
+    "SC-002",
+    "SC-004",
+    "SC-012",
+    "SC-014"
+  ],
+  "untested_requirements": [],
+  "recommendation": "Block release because pass rate or coverage is below the acceptance threshold."
+}

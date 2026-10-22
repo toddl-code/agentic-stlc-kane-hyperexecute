@@ -4,7 +4,7 @@
   "feature": "general",
   "description_hash": "d0a272c9547e",
   "description": "User can create a task with a title and a due date",
-  "objective": "On https://nosecretformula.vercel.app/ \u2014 User can create a task with a title and a due date",
+  "objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can create a task with a title and a due date",
   "asset": "sc_001_user_can_create_a_task_with_a_title_and_test.md",
-  "recorded_at": "2026-05-17T17:06:12.387237+00:00"
+  "recorded_at": "2026-06-08T16:19:52.305965+00:00"
 }

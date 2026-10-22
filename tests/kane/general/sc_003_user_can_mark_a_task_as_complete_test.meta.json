@@ -4,7 +4,7 @@
   "feature": "general",
   "description_hash": "d1a6531039d1",
   "description": "User can mark a task as complete",
-  "objective": "On https://nosecretformula.vercel.app/ \u2014 User can mark a task as complete",
+  "objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can mark a task as complete. Stay on the AUT \u2014 do NOT navigate to any kaneai-playground or ecommerce-playground site.",
   "asset": "sc_003_user_can_mark_a_task_as_complete_test.md",
-  "recorded_at": "2026-05-17T17:05:39.565031+00:00"
+  "recorded_at": "2026-06-08T16:19:43.297995+00:00"
 }

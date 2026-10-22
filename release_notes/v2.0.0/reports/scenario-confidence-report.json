@@ -1,0 +1,461 @@
+{
+  "summary": {
+    "total_requirements": 15,
+    "by_confidence_level": {
+      "HIGH": 10,
+      "MEDIUM": 0,
+      "LOW": 3,
+      "DEPRECATED": 1,
+      "VERY_HIGH": 1
+    },
+    "high_confidence_count": 10,
+    "critical_gap_count": 3,
+    "missing_negative_coverage": 13,
+    "missing_edge_case_coverage": 15,
+    "kane_failed_requirements": 3,
+    "no_mobile_coverage": 14,
+    "quality_signals": {
+      "confidence_gate_passed": false,
+      "high_criticality_low_confidence": [],
+      "missing_negative_coverage_count": 13
+    },
+    "analyzed_at": "2026-06-08T16:32:07.886008+00:00"
+  },
+  "records": [
+    {
+      "requirement_id": "AC-001",
+      "scenario_id": "SC-001",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can create a task with a title and a due date",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can create a task with a title and a due date' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-002",
+      "scenario_id": "SC-002",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can list all tasks ordered by due date, with overdue tasks pinned to the top",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "failed",
+      "confidence_score": 25,
+      "confidence_level": "LOW",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Kane AI functional verification failed",
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can list all tasks ordered by due date, with overdue ta' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Kane AI functional verification failed; Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "MEDIUM"
+      }
+    },
+    {
+      "requirement_id": "AC-003",
+      "scenario_id": "SC-003",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can mark a task as complete",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can mark a task as complete' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-004",
+      "scenario_id": "SC-004",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can edit a task's title or due date",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "failed",
+      "confidence_score": 25,
+      "confidence_level": "LOW",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Kane AI functional verification failed",
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can edit a task's title or due date' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Kane AI functional verification failed; Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "MEDIUM"
+      }
+    },
+    {
+      "requirement_id": "AC-005",
+      "scenario_id": "SC-005",
+      "function_name": "test_sc_005_user_can_delete_a_task",
+      "feature": "GENERAL",
+      "kane_status": "skipped",
+      "confidence_level": "DEPRECATED",
+      "coverage_dimensions": {},
+      "coverage_gaps": [],
+      "confidence_reason": "Tombstoned in v1.1.0",
+      "risk_assessment": {
+        "criticality": "DEPRECATED",
+        "risk_level": "DEPRECATED"
+      },
+      "deprecated_in_release": "v1.1.0"
+    },
+    {
+      "requirement_id": "AC-006",
+      "scenario_id": "SC-006",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can filter the task list by status (active / done / all)",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can filter the task list by status (active / done / all' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-007",
+      "scenario_id": "SC-007",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can attach a colored label to a task and filter by label",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can attach a colored label to a task and filter by labe' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-008",
+      "scenario_id": "SC-008",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can view archived tasks on the Archive page and restore them to the active list",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can view archived tasks on the Archive page and restore' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-009",
+      "scenario_id": "SC-009",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can set a task's priority to High, Medium, or Low (or leave it unset)",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can set a task's priority to High, Medium, or Low (or l' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-010",
+      "scenario_id": "SC-010",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can change a task's priority on the edit screen",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can change a task's priority on the edit screen' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-011",
+      "scenario_id": "SC-011",
+      "scenario_status": "active",
+      "acceptance_criterion": "User can archive all completed tasks in one click via an \"Archive completed\" button at the bottom of the task list",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can archive all completed tasks in one click via an \"Ar' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-012",
+      "scenario_id": "SC-012",
+      "scenario_status": "updated",
+      "acceptance_criterion": "User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "timeout",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User can access TaskFlow under a session-prefixed URL of the' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    },
+    {
+      "requirement_id": "AC-013",
+      "scenario_id": "SC-013",
+      "scenario_status": "updated",
+      "acceptance_criterion": "User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 100,
+      "confidence_level": "VERY_HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": true,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [],
+      "recommendations": [
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "All coverage dimensions satisfied",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "MEDIUM"
+      }
+    },
+    {
+      "requirement_id": "AC-014",
+      "scenario_id": "SC-014",
+      "scenario_status": "updated",
+      "acceptance_criterion": "User visiting a URL with a malformed session ID (not the literal \"default\" and not a 32-character lowercase hex string) receives an HTTP 404 response",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "failed",
+      "confidence_score": 25,
+      "confidence_level": "LOW",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Kane AI functional verification failed",
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'User visiting a URL with a malformed session ID (not the lit' with invalid/error conditions",
+        "Consider adding mobile viewport test"
+      ],
+      "confidence_reason": "Kane AI functional verification failed; Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "MEDIUM"
+      }
+    },
+    {
+      "requirement_id": "AC-015",
+      "scenario_id": "SC-015",
+      "scenario_status": "updated",
+      "acceptance_criterion": "Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session",
+      "feature": "GENERAL",
+      "criticality": "LOW",
+      "kane_status": "passed",
+      "confidence_score": 75,
+      "confidence_level": "HIGH",
+      "coverage_dimensions": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": true,
+        "real_body": false
+      },
+      "coverage_gaps": [
+        "Missing negative/error scenario coverage"
+      ],
+      "recommendations": [
+        "Add scenario: 'Tasks, archives, labels, and priorities created under one se' with invalid/error conditions"
+      ],
+      "confidence_reason": "Missing negative/error scenario coverage",
+      "risk_assessment": {
+        "criticality": "LOW",
+        "risk_level": "LOW"
+      }
+    }
+  ]
+}

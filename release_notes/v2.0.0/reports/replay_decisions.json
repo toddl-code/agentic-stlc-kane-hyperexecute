@@ -1,0 +1,131 @@
+{
+  "force_re_author": true,
+  "decisions": [
+    {
+      "sc_id": "SC-001",
+      "requirement_id": "AC-001",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_001_user_can_create_a_task_with_a_title_and_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "d0a272c9547e"
+    },
+    {
+      "sc_id": "SC-002",
+      "requirement_id": "AC-002",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_002_sorted_tasks_by_due_date_on_nosecretformula_vercel_app_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "0e3ec6797528"
+    },
+    {
+      "sc_id": "SC-003",
+      "requirement_id": "AC-003",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_003_user_can_mark_a_task_as_complete_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "d1a6531039d1"
+    },
+    {
+      "sc_id": "SC-004",
+      "requirement_id": "AC-004",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_004_user_can_edit_a_task_s_title_or_due_date_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "48fccefd86ad"
+    },
+    {
+      "sc_id": "SC-005",
+      "requirement_id": "AC-005",
+      "decision": "skip",
+      "asset_path": null,
+      "reason": "scenario marked deprecated",
+      "description_hash": "92367c2b3e2d"
+    },
+    {
+      "sc_id": "SC-006",
+      "requirement_id": "AC-006",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_006_user_can_filter_the_task_list_by_status_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "8e07ce8ab2f8"
+    },
+    {
+      "sc_id": "SC-007",
+      "requirement_id": "AC-007",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_007_user_can_attach_a_colored_label_to_a_task_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "232d50316b1c"
+    },
+    {
+      "sc_id": "SC-008",
+      "requirement_id": "AC-008",
+      "decision": "rerecord",
+      "asset_path": "tests\\kane\\general\\sc_008_user_can_view_archived_tasks_on_the_archive_page_and_restore_test.md",
+      "reason": "FORCE_RE_AUTHOR set",
+      "description_hash": "4bef08615298"
+    },
+    {
+      "sc_id": "SC-009",
+      "requirement_id": "AC-009",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_009_set_a_task_priority_on_nosecretformula_vercel_app_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "5e625b4afb92"
+    },
+    {
+      "sc_id": "SC-010",
+      "requirement_id": "AC-010",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_010_updated_a_task_s_priority_on_nosecretformula_vercel_app_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "34c535d25b75"
+    },
+    {
+      "sc_id": "SC-011",
+      "requirement_id": "AC-011",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_011_verified_archived_tasks_on_nosecretformula_vercel_app_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "86df97db9656"
+    },
+    {
+      "sc_id": "SC-012",
+      "requirement_id": "AC-012",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "6a03b0ed0113"
+    },
+    {
+      "sc_id": "SC-013",
+      "requirement_id": "AC-013",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_013_user_visiting_a_fresh_session_url_sees_an_empty_task_list_wi_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "358a6c95280a"
+    },
+    {
+      "sc_id": "SC-014",
+      "requirement_id": "AC-014",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_014_user_visiting_a_url_with_a_malformed_session_id_not_the_lite_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "28831ab6a1d6"
+    },
+    {
+      "sc_id": "SC-015",
+      "requirement_id": "AC-015",
+      "decision": "record",
+      "asset_path": "tests\\kane\\general\\sc_015_tasks_archives_labels_and_priorities_created_under_one_sessi_test.md",
+      "reason": "no asset on disk yet",
+      "description_hash": "c47d4ed97266"
+    }
+  ],
+  "summary": {
+    "replay": 0,
+    "record": 7,
+    "rerecord": 7,
+    "skip": 1
+  }
+}

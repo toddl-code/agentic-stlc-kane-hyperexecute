@@ -11,7 +11,7 @@ from playwright.sync_api import expect
 @pytest.mark.scenario("SC-001")
 @pytest.mark.requirement("AC-001")
 def test_sc_001_user_can_create_a_task_with_a_title_and(page):
-    """SC-001: created a new task with a due date on nosecretformula.vercel.app."""
+    """SC-001: created a new task with a title and due date on taskflow-v2-0-0.vercel.app."""
     # No implementation available for AC-001
     pytest.skip("No test body for AC-001")
 
@@ -19,7 +19,7 @@ def test_sc_001_user_can_create_a_task_with_a_title_and(page):
 @pytest.mark.scenario("SC-002")
 @pytest.mark.requirement("AC-002")
 def test_sc_002_user_can_list_all_tasks_ordered_by_due_d(page):
-    """SC-002: created two tasks on nosecretformula.vercel.app."""
+    """SC-002: User can list all tasks ordered by due date, with."""
     # No implementation available for AC-002
     pytest.skip("No test body for AC-002")
 
@@ -27,7 +27,7 @@ def test_sc_002_user_can_list_all_tasks_ordered_by_due_d(page):
 @pytest.mark.scenario("SC-003")
 @pytest.mark.requirement("AC-003")
 def test_sc_003_user_can_mark_a_task_as_complete(page):
-    """SC-003: marked a task as complete on nosecretformula.vercel.app."""
+    """SC-003: marked a task as complete on taskflow-v2-0-0.vercel.app."""
     # No implementation available for AC-003
     pytest.skip("No test body for AC-003")
 
@@ -35,7 +35,7 @@ def test_sc_003_user_can_mark_a_task_as_complete(page):
 @pytest.mark.scenario("SC-004")
 @pytest.mark.requirement("AC-004")
 def test_sc_004_user_can_edit_a_task_s_title_or_due_date(page):
-    """SC-004: opened a task edit form on nosecretformula.vercel.app."""
+    """SC-004: User can edit a task's title or due date."""
     # No implementation available for AC-004
     pytest.skip("No test body for AC-004")
 
@@ -43,7 +43,7 @@ def test_sc_004_user_can_edit_a_task_s_title_or_due_date(page):
 @pytest.mark.scenario("SC-006")
 @pytest.mark.requirement("AC-006")
 def test_sc_006_user_can_filter_the_task_list_by_status(page):
-    """SC-006: filtered tasks by status on nosecretformula.vercel.app."""
+    """SC-006: filtered the task list by status on taskflow-v2-0-0.vercel.app."""
     # No implementation available for AC-006
     pytest.skip("No test body for AC-006")
 
@@ -51,7 +51,7 @@ def test_sc_006_user_can_filter_the_task_list_by_status(page):
 @pytest.mark.scenario("SC-007")
 @pytest.mark.requirement("AC-007")
 def test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app(page):
-    """SC-007: filtered tasks by a red label on nosecretformula.vercel.app."""
+    """SC-007: applied a red label to a task and filtered the task list by that label on taskflow-v2-0-0.vercel.app."""
     # No implementation available for AC-007
     pytest.skip("No test body for AC-007")
 
@@ -59,7 +59,63 @@ def test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app(page
 @pytest.mark.scenario("SC-008")
 @pytest.mark.requirement("AC-008")
 def test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app(page):
-    """SC-008: archived and restored a task on nosecretformula.vercel.app."""
+    """SC-008: archived and restored a task on taskflow-v2-0-0.vercel.app."""
     # No implementation available for AC-008
     pytest.skip("No test body for AC-008")
+
+
+@pytest.mark.scenario("SC-009")
+@pytest.mark.requirement("AC-009")
+def test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io(page):
+    """SC-009: set a task priority on taskflow-v2-0-0.vercel.app."""
+    # No implementation available for AC-009
+    pytest.skip("No test body for AC-009")
+
+
+@pytest.mark.scenario("SC-010")
+@pytest.mark.requirement("AC-010")
+def test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg(page):
+    """SC-010: created and updated a task on taskflow-v2-0-0.vercel.app."""
+    # No implementation available for AC-010
+    pytest.skip("No test body for AC-010")
+
+
+@pytest.mark.scenario("SC-011")
+@pytest.mark.requirement("AC-011")
+def test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via(page):
+    """SC-011: archived completed tasks on taskflow-v2-0-0.vercel.app."""
+    # No implementation available for AC-011
+    pytest.skip("No test body for AC-011")
+
+
+@pytest.mark.scenario("SC-012")
+@pytest.mark.requirement("AC-012")
+def test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the(page):
+    """SC-012: User can access taskflow under a session-prefixed url of the."""
+    # No implementation available for AC-012
+    pytest.skip("No test body for AC-012")
+
+
+@pytest.mark.scenario("SC-013")
+@pytest.mark.requirement("AC-013")
+def test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel(page):
+    """SC-013: Opened an empty TaskFlow task list on taskflow-v2-0-0.vercel.app.."""
+    # No implementation available for AC-013
+    pytest.skip("No test body for AC-013")
+
+
+@pytest.mark.scenario("SC-014")
+@pytest.mark.requirement("AC-014")
+def test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel(page):
+    """SC-014: navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app."""
+    # No implementation available for AC-014
+    pytest.skip("No test body for AC-014")
+
+
+@pytest.mark.scenario("SC-015")
+@pytest.mark.requirement("AC-015")
+def test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app(page):
+    """SC-015: viewed the Session B task list on taskflow-v2-0-0.vercel.app."""
+    # No implementation available for AC-015
+    pytest.skip("No test body for AC-015")
 

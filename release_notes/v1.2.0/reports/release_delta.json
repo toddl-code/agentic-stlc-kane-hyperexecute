@@ -1,0 +1,66 @@
+{
+  "from_release": "v1.1.0",
+  "to_release": "v1.2.0",
+  "from_lock_path": "release_notes\\v1.1.0.lock.json",
+  "to_lock_path": "release_notes\\v1.2.0.lock.json",
+  "threshold": 0.5,
+  "generated_at": "2026-05-19T02:14:14.849818+00:00",
+  "summary": {
+    "ADD": 3,
+    "EDIT": 0,
+    "DELETE": 0,
+    "UNMATCHED": 2
+  },
+  "operations": [
+    {
+      "op": "ADD",
+      "item_text": "User can set a task's priority to High, Medium, or Low (or leave it unset)",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-009",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-009 and let Stage 1 record the asset",
+      "prev_text": null
+    },
+    {
+      "op": "ADD",
+      "item_text": "User can change a task's priority on the edit screen",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-010",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-010 and let Stage 1 record the asset",
+      "prev_text": null
+    },
+    {
+      "op": "ADD",
+      "item_text": "User can archive all completed tasks in one click via an \"Archive completed\" button at the bottom of the task list",
+      "item_section": "Added",
+      "issue": null,
+      "sc_id": null,
+      "requirement_id": "AC-011",
+      "match_score": 0.0,
+      "rationale": "new requirement; will allocate AC-011 and let Stage 1 record the asset",
+      "prev_text": null
+    }
+  ],
+  "unmatched_items": [
+    {
+      "section": "Changed",
+      "text": "Task list sort now uses priority as a secondary key after due date (High \u2192 Med \u2192 Low \u2192 unset)",
+      "issue": null,
+      "best_score": 0.231,
+      "reason": "no scenario cleared similarity threshold 0.5"
+    },
+    {
+      "section": "Changed",
+      "text": "The label cell in the task list now also displays the priority chip when set",
+      "issue": null,
+      "best_score": 0.154,
+      "reason": "no scenario cleared similarity threshold 0.5"
+    }
+  ],
+  "applied": false
+}

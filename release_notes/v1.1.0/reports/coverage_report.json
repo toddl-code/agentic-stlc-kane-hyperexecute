@@ -1,34 +1,51 @@
 {
-  "generated_at": "2026-05-18T05:06:52.094920+00:00",
+  "generated_at": "2026-05-18T16:35:47.058716+00:00",
   "summary": {
     "total_requirements": 8,
     "deprecated": 1,
     "covered_full": 7,
     "covered_partial": 0,
     "uncovered": 0,
-    "coverage_pct": 87.5,
-    "any_coverage_pct": 87.5,
+    "coverage_pct": 100.0,
+    "any_coverage_pct": 100.0,
     "negative_coverage_pct": 0.0,
-    "he_coverage_pct": 87.5,
+    "he_coverage_pct": 100.0,
     "mobile_coverage_pct": 0.0,
     "android_coverage_pct": 0.0,
     "flaky_count": 0,
     "high_risk_count": 0,
-    "medium_risk_count": 0,
-    "missing_scenario_types": 2
+    "medium_risk_count": 5,
+    "missing_scenario_types": 17
   },
   "requirements": [
     {
       "requirement_id": "AC-001",
       "description": "User can create a task with a title and a due date",
-      "feature": "GENERAL",
-      "criticality": "MEDIUM",
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
         "SC-001"
       ],
-      "missing_scenarios": [],
+      "missing_scenarios": [
+        {
+          "type": "happy_path",
+          "description": "Mark a task as complete"
+        },
+        {
+          "type": "happy_path",
+          "description": "Delete a task"
+        },
+        {
+          "type": "negative",
+          "description": "Submit task form with empty title"
+        },
+        {
+          "type": "edge_case",
+          "description": "Create a task with a past-due date"
+        }
+      ],
       "execution_status": {
         "total": 2,
         "passed": 2,
@@ -53,23 +70,28 @@
         "chrome",
         "firefox"
       ],
-      "functional_coverage_pct": 100.0,
-      "negative_coverage_pct": 100.0,
-      "risk_level": "LOW",
+      "functional_coverage_pct": 25.0,
+      "negative_coverage_pct": 0.0,
+      "risk_level": "MEDIUM",
       "flaky": false,
       "retry_count": 0
     },
     {
       "requirement_id": "AC-002",
       "description": "User can list all tasks ordered by due date, with overdue tasks pinned to the top",
-      "feature": "GENERAL",
-      "criticality": "MEDIUM",
+      "feature": "TASK_LIST",
+      "criticality": "HIGH",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
         "SC-002"
       ],
-      "missing_scenarios": [],
+      "missing_scenarios": [
+        {
+          "type": "edge_case",
+          "description": "List view when no tasks exist"
+        }
+      ],
       "execution_status": {
         "total": 2,
         "passed": 2,
@@ -94,23 +116,44 @@
         "chrome",
         "firefox"
       ],
-      "functional_coverage_pct": 100.0,
+      "functional_coverage_pct": 50.0,
       "negative_coverage_pct": 100.0,
-      "risk_level": "LOW",
+      "risk_level": "MEDIUM",
       "flaky": false,
       "retry_count": 0
     },
     {
       "requirement_id": "AC-003",
       "description": "User can mark a task as complete",
-      "feature": "GENERAL",
-      "criticality": "MEDIUM",
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
         "SC-003"
       ],
-      "missing_scenarios": [],
+      "missing_scenarios": [
+        {
+          "type": "happy_path",
+          "description": "Create a task with a title and due date"
+        },
+        {
+          "type": "happy_path",
+          "description": "Edit a task's title or due date"
+        },
+        {
+          "type": "happy_path",
+          "description": "Delete a task"
+        },
+        {
+          "type": "negative",
+          "description": "Submit task form with empty title"
+        },
+        {
+          "type": "edge_case",
+          "description": "Create a task with a past-due date"
+        }
+      ],
       "execution_status": {
         "total": 2,
         "passed": 2,
@@ -135,23 +178,40 @@
         "chrome",
         "firefox"
       ],
-      "functional_coverage_pct": 100.0,
-      "negative_coverage_pct": 100.0,
-      "risk_level": "LOW",
+      "functional_coverage_pct": 25.0,
+      "negative_coverage_pct": 0.0,
+      "risk_level": "MEDIUM",
       "flaky": false,
       "retry_count": 0
     },
     {
       "requirement_id": "AC-004",
       "description": "User can edit a task's title or due date",
-      "feature": "GENERAL",
-      "criticality": "MEDIUM",
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
         "SC-004"
       ],
-      "missing_scenarios": [],
+      "missing_scenarios": [
+        {
+          "type": "happy_path",
+          "description": "Mark a task as complete"
+        },
+        {
+          "type": "happy_path",
+          "description": "Delete a task"
+        },
+        {
+          "type": "negative",
+          "description": "Submit task form with empty title"
+        },
+        {
+          "type": "edge_case",
+          "description": "Create a task with a past-due date"
+        }
+      ],
       "execution_status": {
         "total": 2,
         "passed": 2,
@@ -176,16 +236,16 @@
         "chrome",
         "firefox"
       ],
-      "functional_coverage_pct": 100.0,
-      "negative_coverage_pct": 100.0,
-      "risk_level": "LOW",
+      "functional_coverage_pct": 25.0,
+      "negative_coverage_pct": 0.0,
+      "risk_level": "MEDIUM",
       "flaky": false,
       "retry_count": 0
     },
     {
       "requirement_id": "AC-005",
       "description": "User can delete a task",
-      "feature": "GENERAL",
+      "feature": "TASK_CRUD",
       "criticality": "DEPRECATED",
       "kane_status": "skipped",
       "coverage_status": "DEPRECATED",
@@ -214,7 +274,7 @@
       "requirement_id": "AC-006",
       "description": "User can filter the task list by status (active / done / all)",
       "feature": "FILTER",
-      "criticality": "LOW",
+      "criticality": "MEDIUM",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
@@ -259,8 +319,8 @@
     {
       "requirement_id": "AC-007",
       "description": "User can attach a colored label to a task and filter by label",
-      "feature": "FILTER",
-      "criticality": "LOW",
+      "feature": "LABELS",
+      "criticality": "MEDIUM",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
@@ -269,7 +329,7 @@
       "missing_scenarios": [
         {
           "type": "negative",
-          "description": "Apply filter that produces no results"
+          "description": "Filter by a label with no tasks attached"
         }
       ],
       "execution_status": {
@@ -296,7 +356,7 @@
         "chrome",
         "firefox"
       ],
-      "functional_coverage_pct": 100.0,
+      "functional_coverage_pct": 50.0,
       "negative_coverage_pct": 0.0,
       "risk_level": "LOW",
       "flaky": false,
@@ -305,14 +365,19 @@
     {
       "requirement_id": "AC-008",
       "description": "User can view archived tasks on the Archive page and restore them to the active list",
-      "feature": "GENERAL",
-      "criticality": "MEDIUM",
+      "feature": "ARCHIVE",
+      "criticality": "HIGH",
       "kane_status": "passed",
       "coverage_status": "FULL",
       "covered_scenarios": [
         "SC-008"
       ],
-      "missing_scenarios": [],
+      "missing_scenarios": [
+        {
+          "type": "edge_case",
+          "description": "Archive page is empty"
+        }
+      ],
       "execution_status": {
         "total": 2,
         "passed": 2,
@@ -337,19 +402,29 @@
         "chrome",
         "firefox"
       ],
-      "functional_coverage_pct": 100.0,
+      "functional_coverage_pct": 50.0,
       "negative_coverage_pct": 100.0,
-      "risk_level": "LOW",
+      "risk_level": "MEDIUM",
       "flaky": false,
       "retry_count": 0
     }
   ],
   "feature_rollup": [
     {
-      "feature": "GENERAL",
-      "criticality": "MEDIUM",
-      "total": 5,
-      "covered": 5,
+      "feature": "TASK_CRUD",
+      "criticality": "HIGH",
+      "total": 3,
+      "covered": 3,
+      "partial": 0,
+      "none": 0,
+      "failed": 0,
+      "flaky": 0
+    },
+    {
+      "feature": "TASK_LIST",
+      "criticality": "HIGH",
+      "total": 1,
+      "covered": 1,
       "partial": 0,
       "none": 0,
       "failed": 0,
@@ -357,9 +432,29 @@
     },
     {
       "feature": "FILTER",
-      "criticality": "LOW",
-      "total": 2,
-      "covered": 2,
+      "criticality": "MEDIUM",
+      "total": 1,
+      "covered": 1,
+      "partial": 0,
+      "none": 0,
+      "failed": 0,
+      "flaky": 0
+    },
+    {
+      "feature": "LABELS",
+      "criticality": "MEDIUM",
+      "total": 1,
+      "covered": 1,
+      "partial": 0,
+      "none": 0,
+      "failed": 0,
+      "flaky": 0
+    },
+    {
+      "feature": "ARCHIVE",
+      "criticality": "HIGH",
+      "total": 1,
+      "covered": 1,
       "partial": 0,
       "none": 0,
       "failed": 0,

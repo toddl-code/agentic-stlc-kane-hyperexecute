@@ -29,25 +29,22 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from stage_utils import print_stage_header, print_stage_result
 
-# ── Feature taxonomy ─────────────────────────────────────────────────────────
-# Maps feature name → keywords to detect in requirement text
+# ── Feature taxonomy (TaskFlow) ──────────────────────────────────────────────
+# Maps feature name → keywords to detect in requirement text.
+# Order matters: more specific features (ARCHIVE, LABELS) are checked before
+# generic ones (TASK_CRUD, TASK_LIST) so "archive task" doesn't get classified
+# as TASK_CRUD just because it mentions "task".
 FEATURE_KEYWORDS: dict[str, list[str]] = {
-    "SEARCH":         ["search", "find product", "search bar", "search result", "search for"],
-    "CART":           ["cart", "add to cart", "shopping cart", "remove from cart",
-                       "update quantity", "cart item", "line total", "cart update"],
-    "CATALOG":        ["catalog", "laptops", "product listing", "product catalog",
-                       "browse", "category", "grid", "product grid"],
-    "FILTER":         ["filter", "manufacturer", "brand filter", "narrow", "sidebar"],
-    "PRODUCT_DETAIL": ["product detail", "detail page", "product name", "price",
-                       "thumbnail", "product page", "open a product"],
-    "GUEST":          ["guest", "without logging in", "guest browsing"],
-    "AUTH":           ["register", "log in", "login", "log out", "logout",
-                       "account", "first name", "last name", "telephone",
-                       "password", "dashboard", "registered"],
-    "CHECKOUT":       ["checkout", "shipping", "flat rate", "shipping address",
-                       "complete a guest checkout"],
-    "WISHLIST":       ["wish list", "wishlist"],
-    "SORT":           ["sort", "price low to high", "listing order"],
+    "ARCHIVE":   ["archive", "restore", "archived"],
+    "LABELS":    ["label", "colored label", "color label", "tag"],
+    "FILTER":    ["filter", "status filter", "active / done", "active/done"],
+    "TASK_LIST": ["list all tasks", "ordered by due date", "task list",
+                  "overdue", "pinned", "sort by due"],
+    "TASK_CRUD": ["create a task", "add a task", "new task",
+                  "edit a task", "edit task", "update a task",
+                  "delete a task", "remove a task",
+                  "mark a task as complete", "complete a task",
+                  "task title", "due date"],
 }
 
 # ── Coverage category detection keywords ─────────────────────────────────────
@@ -68,75 +65,47 @@ _SECURITY_KEYWORDS = frozenset([
 _MOBILE_BROWSERS = frozenset(["android", "ios", "safari_mobile", "mobile"])
 _ANDROID_BROWSERS = frozenset(["android"])
 
-# ── Business criticality ──────────────────────────────────────────────────────
+# ── Business criticality (TaskFlow) ──────────────────────────────────────────
+# TASK_CRUD / TASK_LIST / ARCHIVE are HIGH because they are the primary user
+# workflows of the app under test. FILTER and LABELS are MEDIUM because they
+# refine the core experience but losing them doesn't break it.
 FEATURE_CRITICALITY: dict[str, str] = {
-    "AUTH":           "HIGH",
-    "CHECKOUT":       "HIGH",
-    "CART":           "HIGH",
-    "SEARCH":         "MEDIUM",
-    "CATALOG":        "MEDIUM",
-    "PRODUCT_DETAIL": "MEDIUM",
-    "FILTER":         "LOW",
-    "SORT":           "LOW",
-    "WISHLIST":       "LOW",
-    "GUEST":          "LOW",
+    "TASK_CRUD": "HIGH",
+    "TASK_LIST": "HIGH",
+    "ARCHIVE":   "HIGH",
+    "FILTER":    "MEDIUM",
+    "LABELS":    "MEDIUM",
 }
 
 # ── Expected scenario types per feature (static risk model) ──────────────────
-# Drives gap detection: which scenario types SHOULD exist but don't
+# Drives gap detection: which scenario types SHOULD exist but don't.
 EXPECTED_SCENARIOS: dict[str, list[dict]] = {
-    "CART": [
-        {"type": "happy_path", "description": "Add product to cart and see count update"},
-        {"type": "happy_path", "description": "View cart with added items"},
-        {"type": "happy_path", "description": "Remove item from cart"},
-        {"type": "happy_path", "description": "Update item quantity and verify line total"},
-        {"type": "negative",   "description": "Attempt to add out-of-stock product"},
-        {"type": "edge_case",  "description": "View empty cart state"},
-        {"type": "edge_case",  "description": "Cart persistence after page reload"},
+    "TASK_CRUD": [
+        {"type": "happy_path", "description": "Create a task with a title and due date"},
+        {"type": "happy_path", "description": "Edit a task's title or due date"},
+        {"type": "happy_path", "description": "Mark a task as complete"},
+        {"type": "happy_path", "description": "Delete a task"},
+        {"type": "negative",   "description": "Submit task form with empty title"},
+        {"type": "edge_case",  "description": "Create a task with a past-due date"},
     ],
-    "SEARCH": [
-        {"type": "happy_path", "description": "Search by product name and see results"},
-        {"type": "negative",   "description": "Search with a term that returns no results"},
-        {"type": "edge_case",  "description": "Search with special characters"},
-        {"type": "edge_case",  "description": "Search with empty string"},
+    "TASK_LIST": [
+        {"type": "happy_path", "description": "List all tasks ordered by due date"},
+        {"type": "happy_path", "description": "Overdue tasks appear pinned at the top"},
+        {"type": "edge_case",  "description": "List view when no tasks exist"},
     ],
-    "CATALOG": [
-        {"type": "happy_path", "description": "Browse product category/catalog page"},
-        {"type": "happy_path", "description": "View product grid layout"},
-        {"type": "negative",   "description": "Visit category with no products"},
+    "ARCHIVE": [
+        {"type": "happy_path", "description": "Archive a task and confirm it moves to Archive page"},
+        {"type": "happy_path", "description": "Restore an archived task back to the active list"},
+        {"type": "edge_case",  "description": "Archive page is empty"},
     ],
     "FILTER": [
-        {"type": "happy_path", "description": "Apply manufacturer filter from sidebar"},
+        {"type": "happy_path", "description": "Filter task list by status (active / done / all)"},
         {"type": "negative",   "description": "Apply filter that produces no results"},
     ],
-    "PRODUCT_DETAIL": [
-        {"type": "happy_path", "description": "View product detail page with name and price"},
-        {"type": "happy_path", "description": "View product images gallery"},
-    ],
-    "GUEST": [
-        {"type": "happy_path", "description": "Browse site as guest without login"},
-    ],
-    "AUTH": [
-        {"type": "happy_path", "description": "Register new account with all fields"},
-        {"type": "happy_path", "description": "Login with valid credentials and reach dashboard"},
-        {"type": "happy_path", "description": "Logout and redirect to home page"},
-        {"type": "negative",   "description": "Login with invalid credentials"},
-        {"type": "negative",   "description": "Register with already-used email"},
-        {"type": "edge_case",  "description": "Password strength validation"},
-    ],
-    "CHECKOUT": [
-        {"type": "happy_path", "description": "Complete guest checkout with shipping address"},
-        {"type": "negative",   "description": "Checkout with invalid shipping address"},
-        {"type": "edge_case",  "description": "Checkout with empty cart"},
-    ],
-    "WISHLIST": [
-        {"type": "happy_path", "description": "Add product to wishlist from detail page"},
-        {"type": "happy_path", "description": "View wishlist items"},
-        {"type": "negative",   "description": "Add duplicate product to wishlist"},
-    ],
-    "SORT": [
-        {"type": "happy_path", "description": "Sort products by price low to high"},
-        {"type": "happy_path", "description": "Verify listing order changes after sort"},
+    "LABELS": [
+        {"type": "happy_path", "description": "Attach a colored label to a task"},
+        {"type": "happy_path", "description": "Filter tasks by label"},
+        {"type": "negative",   "description": "Filter by a label with no tasks attached"},
     ],
 }
 
@@ -451,11 +420,14 @@ def analyze(
             })
 
     total = len(requirements)
-
-    def _pct(n: int) -> float:
-        return round(n / total * 100, 1) if total else 0.0
-
     deprecated_count = sum(1 for r in coverage_records if r["coverage_status"] == "DEPRECATED")
+    live_total = total - deprecated_count
+
+    # Percentages are computed against the LIVE requirement population
+    # (deprecated tombstones are intentional, not coverage gaps — including
+    # them in the denominator makes a clean release look incomplete).
+    def _pct(n: int) -> float:
+        return round(n / live_total * 100, 1) if live_total else 0.0
     summary = {
         "total_requirements":   total,
         "deprecated":           deprecated_count,
@@ -546,6 +518,7 @@ def _write_markdown(records: list, summary: dict, feature_rollup: dict) -> None:
         "| Metric | Value |",
         "|--------|-------|",
         f"| Total Requirements | {summary['total_requirements']} |",
+        f"| Deprecated (excluded from %) | {summary['deprecated']} |",
         f"| Fully Covered | {summary['covered_full']} ({summary['coverage_pct']}%) |",
         f"| Partially Covered | {summary['covered_partial']} |",
         f"| Uncovered | {summary['uncovered']} |",

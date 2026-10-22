@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-18T04:45:43.605603+00:00",
+  "generated_at": "2026-05-18T16:35:59.832305+00:00",
   "gates_passed": true,
   "critical_failures": 0,
   "warnings": 0,
@@ -16,7 +16,7 @@
       "gate": "Minimum requirement coverage",
       "severity": "WARNING",
       "passed": true,
-      "actual": 87.5,
+      "actual": 100.0,
       "threshold": 50.0,
       "unit": "%",
       "detail": "7 of 8 requirements fully covered"

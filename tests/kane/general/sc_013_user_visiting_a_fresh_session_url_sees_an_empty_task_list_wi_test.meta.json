@@ -1,0 +1,10 @@
+{
+  "sc_id": "SC-013",
+  "requirement_id": "AC-013",
+  "feature": "general",
+  "description_hash": "358a6c95280a",
+  "description": "User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required",
+  "objective": "On https://taskflow-v2-0-0.vercel.app/s/0fedcba987654321a1b2c3d4e5f60718/tasks \u2014 Step 1 (VERIFY): the URL is a never-before-used session; confirm the task list renders with an empty-state message and the create form (Title input, Due date input, Add task button) is still available. Step 2 (VERIFY): confirm no signup, login, or registration step was required. Stop after the empty task list is confirmed. Stay on the AUT \u2014 do NOT navigate to any kaneai-playground or ecommerce-playground site.",
+  "asset": "sc_013_user_visiting_a_fresh_session_url_sees_an_empty_task_list_wi_test.md",
+  "recorded_at": "2026-06-08T16:24:18.665581+00:00"
+}

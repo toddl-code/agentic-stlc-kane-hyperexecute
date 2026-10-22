@@ -1,0 +1,10 @@
+{
+  "sc_id": "SC-014",
+  "requirement_id": "AC-014",
+  "feature": "general",
+  "description_hash": "28831ab6a1d6",
+  "description": "User visiting a URL with a malformed session ID (not the literal \"default\" and not a 32-character lowercase hex string) receives an HTTP 404 response",
+  "objective": "On https://taskflow-v2-0-0.vercel.app/s/not-a-valid-hex-uuid/tasks \u2014 Step 1 (VERIFY): the browser receives an HTTP 404 response (the page either renders a 404 error page or the browser shows a not-found state). Stop after the 404 is confirmed. Stay on the AUT \u2014 do NOT navigate to any kaneai-playground or ecommerce-playground site.",
+  "asset": "sc_014_user_visiting_a_url_with_a_malformed_session_id_not_the_lite_test.md",
+  "recorded_at": "2026-06-08T16:26:09.614542+00:00"
+}

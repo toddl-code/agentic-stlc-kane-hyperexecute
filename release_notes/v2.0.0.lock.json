@@ -1,0 +1,274 @@
+{
+  "release": "v2.0.0",
+  "released_at": "2026-06-08",
+  "from_release": "v1.2.0",
+  "delta_summary": {
+    "ADD": 4,
+    "EDIT": 0,
+    "DELETE": 0,
+    "UNMATCHED": 2
+  },
+  "scenarios": [
+    {
+      "id": "SC-001",
+      "test_case_id": "TC-001",
+      "requirement_id": "AC-001",
+      "title": "created a new task on nosecretformula.vercel.app",
+      "function_name": "test_sc_001_user_can_create_a_task_with_a_title_and",
+      "status": "active",
+      "source_description": "User can create a task with a title and a due date",
+      "steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to start creating a task with ti",
+        "type: Filled 'API created task' via DOM locator: role=textbox[name='Title']",
+        "type: Filled '2026-05-21' via DOM locator: role=textbox[name='Due date']",
+        "click: Clicked via DOM locator: role=button[name='Add task']",
+        "analyze: ANALYZE(visual, 'Is the task list table visible showing at least one task row wi",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can create a task with a title and"
+      ],
+      "expected_result": "Opened nosecretformula.vercel.app and went to the tasks page.\nFilled in the required fields (task title and due date) and saved the new task.\nConfirmed the tasks list shows at least one task with a due date in the DUE column.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can create a task with a title and a due date",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-002",
+      "test_case_id": "TC-002",
+      "requirement_id": "AC-002",
+      "title": "created two tasks and verified their order on nosecretformula.vercel.app",
+      "function_name": "test_sc_002_user_can_list_all_tasks_ordered_by_due_d",
+      "status": "active",
+      "source_description": "User can list all tasks ordered by due date, with overdue tasks pinned to the top",
+      "steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ as specified in the objective.",
+        "wait: Wait briefly (no UI change) while confirming the task 'Overdue 002' with due dat",
+        "wait: Wait briefly on the Tasks page (no UI change) while confirming 'Future 002' is a",
+        "analyze: ANALYZE(visual, \"In the task list table shown on the page (under the DONE/TITLE/",
+        "assert: Confirm the task list shows 'Overdue 002' pinned at the top of the list (above '",
+        "analyze: ANALYZE(visual, 'Is the task titled \"Overdue 002\" shown as the first (top) item ",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 Step 1 (SETUP): create a task titled 'O"
+      ],
+      "expected_result": "Opened nosecretformula.vercel.app to add two tasks.\nCreated a task titled \u201cOverdue 002\u201d with the due date 2026-05-10.\nCreated a second task titled \u201cFuture 002\u201d with the due date 2026-05-25.\nVerified the task list shows \u201cOverdue 002\u201d at the top, above \u201cFuture 002,\u201d because its due date is earlier (relative to 2026-05-17).\nStopped after confirming the correct order and did not delete any tasks.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 Step 1 (SETUP): create a task titled 'Overdue 002' with due date 2026-05-10 using the Add a task form. Step 2 (SETUP): create a second task titled 'Future 002' with due date 2026-05-25. Step 3 (VERIFY): confirm the task list shows 'Overdue 002' pinned at the top of the list (above 'Future 002') because its due date is in the past relative to today's date 2026-05-17. Stop after the order is verified \u2014 do not delete the tasks.",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-003",
+      "test_case_id": "TC-003",
+      "requirement_id": "AC-003",
+      "title": "User can mark a task as complete",
+      "function_name": "test_sc_003_user_can_mark_a_task_as_complete",
+      "status": "active",
+      "source_description": "User can mark a task as complete",
+      "steps": [
+        "Navigate to https://nosecretformula.vercel.app/",
+        "Verify the acceptance criterion"
+      ],
+      "expected_result": "{\"type\":\"test_md_step_start\",\"step_index\":1,\"heading\":\"Step 1\",\"ref\":null}\n{\"type\":\"error\",\"message\":\"Step API error 503: {\\\"error\\\":\\\"all providers are unavailable\\\"}\"}\n{\"type\":\"test_md_step_end\",\"step_index\":1,\"status\":\"failed\",\"duration_s\":78,\"ref_kind\":null,\"inlined_count\":null,\"failed_sub_step_index\":null}\n{\"type\":\"test_md_summary\",\"overall_status\":\"failed\",\"duration_s\":78,\"steps\":{\"total\":1,\"passed\":0,\"failed\":1,\"skipped\":0,\"replay_decisions\":0,\"author_decisions\":1},\"retries\":{\"triggered\":",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can mark a task as complete. Stay on the AUT \u2014 do NOT navigate to any kaneai-playground or ecommerce-playground site.",
+      "last_verified": "2026-05-19",
+      "updated_at": "2026-05-19T02:14:15.261688+00:00"
+    },
+    {
+      "id": "SC-004",
+      "test_case_id": "TC-004",
+      "requirement_id": "AC-004",
+      "title": "edited a task on nosecretformula.vercel.app",
+      "function_name": "test_sc_004_user_can_edit_a_task_s_title_or_due_date",
+      "status": "active",
+      "source_description": "User can edit a task's title or due date",
+      "steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to begin verifying task editing ",
+        "click: Clicked via DOM locator: role=link[name='Edit']",
+        "analyze: ANALYZE(visual, 'Is an \"Edit task\" form visible with a \"Title\" input field?', ke",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can edit a task's title or due dat"
+      ],
+      "expected_result": "Opened nosecretformula.vercel.app and went to the tasks area.\nSelected an existing task (Task #6) and entered edit mode.\nReached the \u201cEdit task #6\u201d page where the Title field is available for updating, indicating the task can be edited.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can edit a task's title or due date",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-005",
+      "test_case_id": "TC-005",
+      "requirement_id": "AC-005",
+      "title": "User can delete a task",
+      "function_name": "test_sc_005_user_can_delete_a_task",
+      "status": "deprecated",
+      "source_description": "User can delete a task",
+      "steps": [
+        "Navigate to https://nosecretformula.vercel.app/",
+        "Verify the acceptance criterion"
+      ],
+      "expected_result": "skipped: scenario marked deprecated",
+      "kane_url": "https://nosecretformula.vercel.app/",
+      "kane_objective": "On https://nosecretformula.vercel.app/ \u2014 User can delete a task",
+      "last_verified": "2026-05-19",
+      "deprecated_in_release": "v1.1.0",
+      "deprecated_at": "2026-05-18"
+    },
+    {
+      "id": "SC-006",
+      "test_case_id": "TC-006",
+      "requirement_id": "AC-006",
+      "title": "switched the task list status filter on nosecretformula.vercel.app",
+      "function_name": "test_sc_006_user_can_filter_the_task_list_by_status",
+      "status": "active",
+      "source_description": "User can filter the task list by status (active / done / all)",
+      "steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to access the task list app for ",
+        "click: Clicked via DOM locator: role=link[name='Done']",
+        "analyze: ANALYZE(visual, 'Is the \"Done\" status filter pill selected/highlighted above the",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can filter the task list by status"
+      ],
+      "expected_result": "Opened https://nosecretformula.vercel.app/ and located the status filter controls above the task list.\nSwitched the task list view between the Active, Done, and All status filters.\nFinished with the Done filter selected, showing the Done tasks view at https://nosecretformula.vercel.app/tasks?status=done.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can filter the task list by status (active / done / all)",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-007",
+      "test_case_id": "TC-007",
+      "requirement_id": "AC-007",
+      "title": "filtered tasks by a blue label on nosecretformula.vercel.app",
+      "function_name": "test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app",
+      "status": "active",
+      "source_description": "User can attach a colored label to a task and filter by label",
+      "steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to start the task/label flow.",
+        "type: Filled 'Label filter demo task' via DOM locator: role=textbox[name='Title']",
+        "select: Selected 'blue' via DOM locator: role=combobox[name='Label']",
+        "click: Clicked via DOM locator: role=button[name='Add task']",
+        "click: Clicked via DOM locator: role=link[name='blue']",
+        "analyze: ANALYZE(visual, 'Is there a task row showing a colored label pill in the Label c",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can attach a colored label to a ta"
+      ],
+      "expected_result": "Opened https://nosecretformula.vercel.app/.\nCreated or selected a task (\u201cLabel filter demo task\u201d) and attached a blue label to it.\nUsed the label filter to show only tasks with the blue label.\nEnded on the filtered tasks view showing the task with a blue \u201cblue\u201d label.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can attach a colored label to a task and filter by label. Stay on the AUT \u2014 do NOT navigate to any kaneai-playground or ecommerce-playground site.",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-008",
+      "test_case_id": "TC-008",
+      "requirement_id": "AC-008",
+      "title": "User can view archived tasks on the archive page and",
+      "function_name": "test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app",
+      "status": "active",
+      "source_description": "User can view archived tasks on the Archive page and restore them to the active list",
+      "steps": [
+        "Navigate to https://nosecretformula.vercel.app/",
+        "Verify the acceptance criterion"
+      ],
+      "expected_result": "kane-cli testmd run wedged past 240s \u2014 killed by subprocess.TimeoutExpired",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 Step 1 (SETUP): create a new task titled 'Archive demo task' with due date 2026-05-20 using the Add a task form. Step 2 (SETUP): on that task's row, click the Archive button to archive it. Step 3 (VERIFY): click the Archive link in the top navigation (or navigate to https://taskflow-v2-0-0.vercel.apparchive) and confirm 'Archive demo task' is listed there. Step 4 (VERIFY): click the Restore button next to that archived task. Step 5 (VERIFY): return to the main task list (navigate to https://taskflow-v2-0-0.vercel.app) and confirm 'Archive demo task' is back in the active list. Stop after the restored task is visible on the active list \u2014 do not delete or re-archive it.",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-009",
+      "test_case_id": "TC-009",
+      "requirement_id": "AC-009",
+      "title": "set a task priority on nosecretformula.vercel.app",
+      "function_name": "test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io",
+      "status": "active",
+      "source_description": "User can set a task's priority to High, Medium, or Low (or leave it unset)",
+      "steps": [
+        "Navigate to https://nosecretformula.vercel.app/",
+        "Verify the acceptance criterion"
+      ],
+      "expected_result": "Opened https://nosecretformula.vercel.app/ and went to the Tasks page.\nUsed the task form (add or edit) to set a task\u2019s priority.\nConfirmed the change worked by seeing a task in the list displaying a red \u201cHIGH\u201d priority badge on the Tasks page.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can set a task's priority to High, Medium, or Low (or leave it unset). Use the Add a task form (or edit form) to set the priority. Stay on the AUT - do NOT navigate to any kaneai-playground or ecommerce-playground site.",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-010",
+      "test_case_id": "TC-010",
+      "requirement_id": "AC-010",
+      "title": "updated a task's priority on nosecretformula.vercel.app",
+      "function_name": "test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg",
+      "status": "active",
+      "source_description": "User can change a task's priority on the edit screen",
+      "steps": [
+        "Navigate to https://nosecretformula.vercel.app/",
+        "Verify the acceptance criterion"
+      ],
+      "expected_result": "Created a new task titled \"Priority demo task\" with due date 2026-05-20 using the Add a task form.\nOpened that task\u2019s Edit screen from the task row, changed the priority to High, and saved the update.\nReturned to the tasks list and confirmed the \"Priority demo task\" row shows a High priority chip.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 Step 1 (SETUP): create a task titled 'Priority demo task' with due date 2026-05-20 using the Add a task form. Step 2 (VERIFY): click the Edit link on that task's row, change its priority to High on the edit screen, and save. Step 3 (VERIFY): confirm the task list shows 'Priority demo task' with a High priority chip. Stay on the AUT - do NOT navigate to any kaneai-playground or ecommerce-playground site.",
+      "last_verified": "2026-05-19"
+    },
+    {
+      "id": "SC-011",
+      "test_case_id": "TC-011",
+      "requirement_id": "AC-011",
+      "title": "verified archived tasks on nosecretformula.vercel.app",
+      "function_name": "test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via",
+      "status": "active",
+      "source_description": "User can archive all completed tasks in one click via an \"Archive completed\" button at the bottom of the task list",
+      "steps": [
+        "Navigate to https://nosecretformula.vercel.app/",
+        "Verify the acceptance criterion"
+      ],
+      "expected_result": "The run navigated from the Tasks page to the Archive page to check that two tasks (\u201cBulk archive A\u201d and \u201cBulk archive B\u201d) were no longer in the active task list and instead appeared in the Archive.\nThe Archive page loaded successfully and shows a table of archived tasks with a \u201cRestore\u201d button for each row.\nWhat went wrong: the final confirmation step failed when checking that both tasks had been removed from the active list (i.e., verifying the move from Tasks to Archive). The run stopped on the Archive page during this verification.\nBased on the Archive page screenshot, \u201cBulk archive A\u201d and \u201cBulk archive B\u201d are visible in the Archive list, but the automation could not confirm the other half of the requirement (that they are gone from the active Tasks list). This likely failed because the check for the active list didn\u2019t run on the Tasks page or the page state didn\u2019t refresh/wasn\u2019t revisited after archiving, so the system couldn\u2019t reliably prove the tasks were removed from the active view.\nA follow-on error (\u201cstep file not found\u201d) occurred after the failed verification, indicating the run could not continue once the confirmation step failed.",
+      "kane_url": "https://taskflow-v2-0-0.vercel.app/",
+      "kane_objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 Step 1 (SETUP): create a task titled 'Bulk archive A', mark it complete. Step 2 (SETUP): create a task titled 'Bulk archive B', mark it complete. Step 3 (VERIFY): click the 'Archive completed' button at the bottom of the task list. Step 4 (VERIFY): confirm both completed tasks are removed from the active list (they now appear on the Archive page). Stay on the AUT - do NOT navigate to any kaneai-playground or ecommerce-playground site. Stop immediately once confirmed. Do not navigate further.",
+      "last_verified": "2026-05-19",
+      "updated_at": "2026-05-19T02:14:15.261688+00:00"
+    },
+    {
+      "id": "SC-012",
+      "test_case_id": "TC-012",
+      "requirement_id": "AC-012",
+      "title": "User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>",
+      "description": "User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID",
+      "feature": "general",
+      "status": "new",
+      "kane_objective": "User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID",
+      "added_in_release": "v2.0.0",
+      "added_at": "2026-06-08",
+      "issue": null
+    },
+    {
+      "id": "SC-013",
+      "test_case_id": "TC-013",
+      "requirement_id": "AC-013",
+      "title": "User visiting a fresh session URL sees an empty task list with the create form a",
+      "description": "User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required",
+      "feature": "general",
+      "status": "new",
+      "kane_objective": "User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required",
+      "added_in_release": "v2.0.0",
+      "added_at": "2026-06-08",
+      "issue": null
+    },
+    {
+      "id": "SC-014",
+      "test_case_id": "TC-014",
+      "requirement_id": "AC-014",
+      "title": "User visiting a URL with a malformed session ID (not the literal \"default\" and n",
+      "description": "User visiting a URL with a malformed session ID (not the literal \"default\" and not a 32-character lowercase hex string) receives an HTTP 404 response",
+      "feature": "general",
+      "status": "new",
+      "kane_objective": "User visiting a URL with a malformed session ID (not the literal \"default\" and not a 32-character lowercase hex string) receives an HTTP 404 response",
+      "added_in_release": "v2.0.0",
+      "added_at": "2026-06-08",
+      "issue": null
+    },
+    {
+      "id": "SC-015",
+      "test_case_id": "TC-015",
+      "requirement_id": "AC-015",
+      "title": "Tasks, archives, labels, and priorities created under one session are invisible ",
+      "description": "Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session",
+      "feature": "general",
+      "status": "new",
+      "kane_objective": "Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session",
+      "added_in_release": "v2.0.0",
+      "added_at": "2026-06-08",
+      "issue": null
+    }
+  ]
+}

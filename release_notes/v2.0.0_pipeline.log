@@ -1,0 +1,958 @@
+[pipeline] starting — FULL_RUN=True  BUILD=Agentic STLC | 2026-06-08
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 2] MANAGE_SCENARIOS
+     Sync scenarios.json with analyzed requirements
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 2] MANAGE_SCENARIOS — complete
+==============================================================
+  Active                    : 10
+  Updated                   : 4
+  New                       : 0
+  Deprecated                : 1
+  Total                     : 15
+  Output                    : scenarios/scenarios.json
+  Completed at              : 16:26:42 UTC
+==============================================================
+
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 3] GENERATE_TESTS
+     Assemble Kane-exported Python Playwright tests (Stage 3a)
+──────────────────────────────────────────────────────────────
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 3a] COLLECT_KANE_EXPORTS
+     Assemble Kane-exported Python Playwright code into test_powerapps.py
+──────────────────────────────────────────────────────────────
+  [skip        ] SC-001 (AC-001): created a new task with a title and due date on ta
+  [skip        ] SC-002 (AC-002): User can list all tasks ordered by due date, with
+  [skip        ] SC-003 (AC-003): marked a task as complete on taskflow-v2-0-0.verce
+  [skip        ] SC-004 (AC-004): User can edit a task's title or due date
+  [skip        ] SC-006 (AC-006): filtered the task list by status on taskflow-v2-0-
+  [skip        ] SC-007 (AC-007): applied a red label to a task and filtered the tas
+  [skip        ] SC-008 (AC-008): archived and restored a task on taskflow-v2-0-0.ve
+  [skip        ] SC-009 (AC-009): set a task priority on taskflow-v2-0-0.vercel.app
+  [skip        ] SC-010 (AC-010): created and updated a task on taskflow-v2-0-0.verc
+  [skip        ] SC-011 (AC-011): archived completed tasks on taskflow-v2-0-0.vercel
+  [skip        ] SC-012 (AC-012): User can access taskflow under a session-prefixed 
+  [skip        ] SC-013 (AC-013): Opened an empty TaskFlow task list on taskflow-v2-
+  [skip        ] SC-014 (AC-014): navigated to a Taskflow tasks page on taskflow-v2-
+  [skip        ] SC-015 (AC-015): viewed the Session B task list on taskflow-v2-0-0.
+
+==============================================================
+  ✅  [Stage 3a] COLLECT_KANE_EXPORTS — complete
+==============================================================
+  Scenarios assembled       : 14
+  Kane export used          : 0
+  Fallback used             : 0
+  Skipped (no impl)         : 14
+  Kane coverage             : 0%
+  Output                    : tests/playwright/test_powerapps.py
+  Completed at              : 16:26:42 UTC
+==============================================================
+
+[validate_tests] tests/playwright/test_powerapps.py — syntax OK
+
+==============================================================
+  ✅  [Stage 3] GENERATE_TESTS — complete
+==============================================================
+  Tests assembled           : 14
+  Kane export used          : 0
+  Fallback used             : 0
+  Syntax                    : VALID
+  Output                    : tests/playwright/test_powerapps.py
+  Completed at              : 16:26:42 UTC
+==============================================================
+
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 4] SELECT_TESTS
+     Build test manifest (full run)
+──────────────────────────────────────────────────────────────
+[test_selection] 14 test(s) — full run
+
+==============================================================
+  ✅  [Stage 4] SELECT_TESTS — complete
+==============================================================
+  Run type                  : full
+  Selected                  : 14 scenarios (14 test nodes)
+  Excluded                  : 1 (deprecated)
+  Output                    : reports/pytest_selection.txt, reports/test_execution_manifest.json
+  Completed at              : 16:26:42 UTC
+==============================================================
+
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 5] HYPEREXECUTE
+     Submit tests to LambdaTest HyperExecute
+──────────────────────────────────────────────────────────────
+[hyperexecute] cwd=C:\Projects\agentic-stlc-kane-hyperexecute  platform=win32  binary_exists=True
+[validate_selection] 14 test node(s) queued
+[hyperexecute] submitting 14 test(s):
+  tests/playwright/test_powerapps.py::test_sc_001_user_can_create_a_task_with_a_title_and
+  tests/playwright/test_powerapps.py::test_sc_002_user_can_list_all_tasks_ordered_by_due_d
+  tests/playwright/test_powerapps.py::test_sc_003_user_can_mark_a_task_as_complete
+  tests/playwright/test_powerapps.py::test_sc_004_user_can_edit_a_task_s_title_or_due_date
+  tests/playwright/test_powerapps.py::test_sc_006_user_can_filter_the_task_list_by_status
+  tests/playwright/test_powerapps.py::test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app
+  tests/playwright/test_powerapps.py::test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app
+  tests/playwright/test_powerapps.py::test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io
+  tests/playwright/test_powerapps.py::test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg
+  tests/playwright/test_powerapps.py::test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via
+  tests/playwright/test_powerapps.py::test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the
+  tests/playwright/test_powerapps.py::test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel
+  tests/playwright/test_powerapps.py::test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel
+  tests/playwright/test_powerapps.py::test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app
+[hyperexecute] starting — cmd: C:\Projects\agentic-stlc-kane-hyperexecute\hyperexecute.exe --user toddl ...
+[hyperexecute] exit_code=1  duration=322.4s  output_lines=11509
+  Found user credentials in env and cli flag both, credentials in env will be ignored
+  Found key credentials in env and cli flag both, credentials in env will be ignored
+  Current binary version 0.2.340 is less than max upstream version 0.2.342.
+  Auto updating binary ...................
+  Update successfully installed. Restarting the binary...
+  Found user credentials in env and cli flag both, credentials in env will be ignored
+  Found key credentials in env and cli flag both, credentials in env will be ignored
+  Generating TraceID for tracking request: 01KTM0XP2JAJVRJY37732M1AND 
+  
+  Found user credentials in env and cli flag both, credentials in env will be ignored
+  Found key credentials in env and cli flag both, credentials in env will be ignored
+  Please ensure the value of testSuiteTimeout is set within 150 min. Overriding the specified value to 150 min.
+  Please ensure the value of globalTimeout is set within 150 min. Overriding the specified value to 150 min.
+  Please ensure the value of testSuiteTimeout is set within 150 min. Overriding the specified value to 150 min.
+  
+  Execution Plan
+  Mode:    autosplit
+  Runson:    linux
+  Concurrency:    5
+  Report:    enabled
+  Artefacts:
+      TestReports:    reports/
+  Cache Directories:
+      .pip_cache
+      ~/.cache/ms-playwright
+  
+  File: C:\Users\TODDLE~1\AppData\Local\Temp\git.diff upload completed in 2.9690231s
+  File: C:\Projects\agentic-stlc-kane-hyperexecute\hyperexecute-code-b342f682-bad1-49a6-bb29-72e8ce7fbee1.zip upload completed in 8.3505499s
+  File: C:\Projects\agentic-stlc-kane-hyperexecute\.updatedhyperexecute.yaml upload completed in 2.354211s
+  File: mask-b342f682-bad1-49a6-bb29-72e8ce7fbee1.yaml upload completed in 2.351619s
+[hyperexecute] job_id='b342f682-bad1-49a6-bb29-72e8ce7fbee1'  (extracted via multi-pattern parser)
+
+==============================================================
+  ✅  [Stage 5] HYPEREXECUTE — complete
+==============================================================
+  Job ID                    : b342f682-bad1-49a6-bb29-72e8ce7fbee1
+  Concurrency               : 5 VMs
+  Tests                     : 14 submitted
+  Duration                  : 322.5s
+  Dashboard                 : https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=b342f682-bad1-49a6-bb29-72e8ce7fbee1
+  Completed at              : 16:32:05 UTC
+==============================================================
+
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 6] FETCH_RESULTS
+     Fetch session results via MCP + LambdaTest API
+──────────────────────────────────────────────────────────────
+[mcp] connection failed: unhandled errors in a TaskGroup (1 sub-exception) — falling back to HE REST API + sessions API
+[he_rest] job status from REST API: 'failed'  job_id=b342f682-bad1-49a6-bb29-72e8ce7fbee1
+[he_sessions_api] page 0: 20 session(s)
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via' → passed  testID=2PTH1-HCXKY-YPEFF-JDXEE
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_002_user_can_list_all_tasks_ordered_by_due_d' → passed  testID=5MNIR-QHRFH-K4J6K-M7VFJ
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the' → passed  testID=89CQU-TABL6-8MSSY-TVSWC
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app' → passed  testID=AKVPR-8QRS4-XZFOO-H5GJW
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app' → passed  testID=C9DKA-DAEWG-DFKP5-MPB9P
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_004_user_can_edit_a_task_s_title_or_due_date' → passed  testID=DGUQO-UMSD1-QAFOV-8DVYX
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app' → passed  testID=E84JZ-4AMQW-RVW0L-DYPDF
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io' → passed  testID=EOYAO-VF5GV-ABJYN-PEYYU
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_001_user_can_create_a_task_with_a_title_and' → passed  testID=JMW3S-LDZO6-QNWTW-1NQ3J
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_004_user_can_edit_a_task_s_title_or_due_date' → passed  testID=KLA9I-XOUAQ-597AB-BMBQU
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_003_user_can_mark_a_task_as_complete' → passed  testID=L1TST-KVCJI-BZS85-4LOAK
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the' → passed  testID=LAF7S-1B6SO-AOKY1-T1P1S
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_006_user_can_filter_the_task_list_by_status' → passed  testID=LBUYQ-6SSDQ-1DMED-ZRAEW
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel' → passed  testID=LCPBK-EN7DM-9SVTS-E8FW8
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_003_user_can_mark_a_task_as_complete' → passed  testID=MOEYO-YNPB3-GWDNN-SVFXA
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app' → passed  testID=NUKFU-MYHWQ-XPGOF-I28FB
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel' → passed  testID=OBDDJ-ROWZJ-YSWQM-XBLEE
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app' → passed  testID=OHQJD-XMTIZ-FUA4B-W8AVX
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io' → passed  testID=PV5D4-SUMP4-E8DAO-GKEGX
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_002_user_can_list_all_tasks_ordered_by_due_d' → passed  testID=QK7M0-MJCHO-S4H1E-09XBR
+[he_sessions_api] page 1: 8 session(s)
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg' → passed  testID=R2QTT-WL2L4-ALT2U-6GXBW
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel' → passed  testID=RDPSU-BU8FE-UPCTX-DP1HX
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via' → passed  testID=S6KMF-3UUYX-5ABN4-H74T3
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel' → passed  testID=SYOYC-VIT6B-ZWEJP-CPY7M
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_006_user_can_filter_the_task_list_by_status' → passed  testID=UBOLY-26KZY-GLAXE-9JWAC
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_001_user_can_create_a_task_with_a_title_and' → passed  testID=Y5B3K-8V8J7-4ISIZ-VK6YU
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app' → passed  testID=Y6KXJ-PACQJ-UQTRS-0W2TV
+  [he_api] 'tests/playwright/test_powerapps.py::test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg' → passed  testID=YPCUM-9WFCJ-OG9QK-DKVEZ
+[he_sessions] final: 28 session(s)
+[api_details] saved 28 task(s) — raw='failed'  normalized=FAILED  parser=api_ok  pass=28 fail=0
+
+==============================================================
+  ✅  [Stage 6] FETCH_RESULTS — complete
+==============================================================
+  Sessions found            : 28
+  Job status                : failed
+  Output                    : reports/api_details.json
+  Completed at              : 16:32:07 UTC
+==============================================================
+
+
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 7] POST_PIPELINE
+     Normalize artifacts, build traceability, generate verdict
+──────────────────────────────────────────────────────────────
+
+[post-pipeline] running ci/normalize_artifacts.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 6a] NORMALIZE_ARTIFACTS
+     Consolidate conftest, JUnit, and HE API results
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 6a] NORMALIZE_ARTIFACTS — complete
+==============================================================
+  Results normalized        : 28
+  Passed                    : 28
+  Failed                    : 0
+  Data unavailable          : 0
+  Sources used              : he_api
+  Output                    : reports/normalized_results.json
+  Completed at              : 16:32:07 UTC
+==============================================================
+[post-pipeline] ci/normalize_artifacts.py ok
+
+[post-pipeline] running ci/scenario_confidence.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 2b] SCENARIO_CONFIDENCE
+     Score scenario coverage sufficiency and gate on HIGH-criticality gaps
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 2b] SCENARIO_CONFIDENCE — complete
+==============================================================
+  Scenarios scored          : 15
+  VERY_HIGH                 : 1
+  HIGH                      : 10
+  MEDIUM                    : 0
+  LOW                       : 3
+  CRITICAL_GAP              : 0
+  High-risk requirements    : 0
+  Outputs                   : reports/scenario-confidence-report.json, requirement-confidence-summary.md
+  Completed at              : 16:32:07 UTC
+==============================================================
+[post-pipeline] ci/scenario_confidence.py ok
+
+[post-pipeline] running ci/build_traceability.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 7] TRACEABILITY_REPORT
+     Build requirement → scenario → test → result matrix
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 7] TRACEABILITY_REPORT — complete
+==============================================================
+  Requirements covered      : 15/15
+  Pass rate                 : 71.4%
+  Passed                    : 10
+  Failed                    : 4
+  Untested                  : 0
+  Browsers                  : chrome, firefox
+  Output                    : reports/traceability_matrix.md, reports/traceability_matrix.json
+  Completed at              : 16:32:07 UTC
+==============================================================
+[post-pipeline] ci/build_traceability.py ok
+
+[post-pipeline] running ci/release_recommendation.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 8] RELEASE_RECOMMENDATION
+     Compute GREEN/YELLOW/RED verdict from traceability matrix
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 8] RELEASE_RECOMMENDATION — complete
+==============================================================
+  Verdict                   : RED
+  Pass rate                 : 71.4%
+  Passed                    : 10
+  Executed                  : 14
+  Failing                   : 4
+  Untested                  : 0
+  Output                    : reports/release_recommendation.md
+  Completed at              : 16:32:08 UTC
+==============================================================
+
+
+  → RED: Block release because pass rate or coverage is below the acceptance threshold.
+[post-pipeline] ci/release_recommendation.py ok
+
+[post-pipeline] running ci/coverage_analysis.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 7b] COVERAGE_ANALYSIS
+     Enterprise requirement coverage and gap analysis
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 7b] COVERAGE_ANALYSIS — complete
+==============================================================
+  Total requirements        : 15
+  Fully covered             : 14 (100.0%)
+  Partially covered         : 0
+  Uncovered                 : 0
+  Negative coverage         : 7.1%
+  HyperExecute coverage     : 100.0%
+  Mobile coverage           : 0.0%
+  Flaky requirements        : 0
+  High-risk requirements    : 2
+  Missing scenario types    : 13
+  Output                    : reports/coverage_report.json
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/coverage_analysis.py ok
+
+[post-pipeline] running ci/write_github_summary.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 9] GITHUB_SUMMARY
+     Writing GitHub Actions step summary
+──────────────────────────────────────────────────────────────
+# Agentic STLC — Pipeline Report
+
+
+## Pipeline Stage Status
+
+| Stage | Name | Status | Normalized Status | Details |
+|-------|------|--------|-------------------|---------|
+| 1 | KaneAI Verification | 🟡 | PARTIAL | 10/15 criteria passed |
+| 2–4 | Scenarios + Test Gen + Selection | ✅ | PASSED | 14 active tests generated |
+| 5 | HyperExecute Regression | ✅ | PASSED | 28/28 tasks · parser: api_ok |
+| 6 | Result Aggregation | ✅ | PASSED | 28 results normalized |
+| 7–8 | Traceability + Verdict | 🔴 | RED | see release recommendation below |
+
+## Execution Links
+
+- [HyperExecute Dashboard](https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=b342f682-bad1-49a6-bb29-72e8ce7fbee1)
+
+## Stage 0 · Agentic Release Notes
+
+**v1.2.0 → v2.0.0**  ·  Mode: **APPLIED**  ·  Match threshold: `0.5`
+
+| Operation | Count |
+|---|---|
+| 🟢 ADD       | 4 |
+| 🟡 EDIT      | 0 |
+| 🔴 DELETE    | 0 |
+| ⚠️ Unmatched | 2 |
+
+| Op | Scenario | Requirement | Issue | Score | Change |
+|---|---|---|---|---|---|
+| 🟢 ADD | `—` | `AC-012` | — | 0.00 | **new:** User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID |
+| 🟢 ADD | `—` | `AC-013` | — | 0.00 | **new:** User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required |
+| 🟢 ADD | `—` | `AC-014` | — | 0.00 | **new:** User visiting a URL with a malformed session ID (not the literal "default" and not a 32-character lowercase hex string) receives an HTTP 404 response |
+| 🟢 ADD | `—` | `AC-015` | — | 0.00 | **new:** Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session |
+
+**Unmatched items** (manual scenario assignment required):
+
+| Section | Best score | Reason | Item |
+|---|---|---|---|
+| Changed | 0.27 | no scenario cleared similarity threshold 0.5 | Task list and Archive page now reflect only data from the active session |
+| Changed | 0.18 | no scenario cleared similarity threshold 0.5 | The "Archive completed" bulk action and its count reflect only completed tasks in the active session |
+
+## Stage 1 · Kane AI Functional Verification
+
+| Req ID | Acceptance Criterion | Kane Status | What Kane Observed |
+|---|---|---|---|
+| `AC-001` | User can create a task with a title and a due date | ✅ passed | created a new task with a title and due date on taskflow-v2-0-0.vercel.app |
+| `AC-002` | User can list all tasks ordered by due date, with overdue ta | ❌ failed | — |
+| `AC-003` | User can mark a task as complete | ✅ passed | marked a task as complete on taskflow-v2-0-0.vercel.app |
+| `AC-004` | User can edit a task's title or due date | ❌ failed | — |
+| `AC-005` | User can delete a task | ⏭️ skipped | — |
+| `AC-006` | User can filter the task list by status (active / done / all | ✅ passed | filtered the task list by status on taskflow-v2-0-0.vercel.app |
+| `AC-007` | User can attach a colored label to a task and filter by labe | ✅ passed | applied a red label to a task and filtered the task list by that label on taskflow-v2-0-0.vercel.app |
+| `AC-008` | User can view archived tasks on the Archive page and restore | ✅ passed | archived and restored a task on taskflow-v2-0-0.vercel.app |
+| `AC-009` | User can set a task's priority to High, Medium, or Low (or l | ✅ passed | set a task priority on taskflow-v2-0-0.vercel.app |
+| `AC-010` | User can change a task's priority on the edit screen | ✅ passed | created and updated a task on taskflow-v2-0-0.vercel.app |
+| `AC-011` | User can archive all completed tasks in one click via an "Ar | ✅ passed | archived completed tasks on taskflow-v2-0-0.vercel.app |
+| `AC-012` | User can access TaskFlow under a session-prefixed URL of the | ❓ timeout | — |
+| `AC-013` | User visiting a fresh session URL sees an empty task list wi | ✅ passed | Opened an empty TaskFlow task list on taskflow-v2-0-0.vercel.app. |
+| `AC-014` | User visiting a URL with a malformed session ID (not the lit | ❌ failed | navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app |
+| `AC-015` | Tasks, archives, labels, and priorities created under one se | ✅ passed | viewed the Session B task list on taskflow-v2-0-0.vercel.app |
+
+**3 criterion/criteria failed Kane AI verification:**
+- ❌ `AC-002` User can list all tasks ordered by due date, with — 
+- ❌ `AC-004` User can edit a task's title or due date — 
+- ❌ `AC-014` User visiting a url with a malformed session id (not — navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app
+
+## Stage 2 · Scenario Catalog
+
+Total: **15** — 10 active, 0 new, 4 updated, 1 deprecated
+
+| Scenario | Status | Requirement |
+|---|---|---|
+| `SC-012` User can access taskflow under a session-prefixed url of the | 🔄 updated | `AC-012` |
+| `SC-013` Opened an empty TaskFlow task list on taskflow-v2-0-0.vercel.app. | 🔄 updated | `AC-013` |
+| `SC-014` navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app | 🔄 updated | `AC-014` |
+| `SC-015` viewed the Session B task list on taskflow-v2-0-0.vercel.app | 🔄 updated | `AC-015` |
+
+## Stage 2b · Scenario Confidence Analysis
+
+**Confidence gate:** ✅ PASSED
+
+**Confidence Score Ranges** _(score → level)_:
+
+| Score Range | Level | Meaning |
+|---|---|---|
+| 90 – 100 | 🟢 VERY_HIGH    | All coverage dimensions satisfied |
+| 75 – 89  | 🟡 HIGH         | Core flow validated; one minor coverage gap |
+| 50 – 74  | 🟠 MEDIUM       | Happy path present; two important gaps remain |
+| 1 – 49   | 🔴 LOW          | Three or more gaps OR Kane functional failure |
+| 0        | 🚨 CRITICAL_GAP | No scenario mapped — zero automated coverage |
+
+**Distribution across this release:**
+
+| Level | Count |
+|---|---|
+| 🟢 VERY_HIGH    | 1 |
+| 🟡 HIGH         | 10 |
+| 🟠 MEDIUM       | 0 |
+| 🔴 LOW          | 3 |
+| 🚨 CRITICAL_GAP | 0 |
+
+### Requirement Confidence Detail
+
+| Requirement | Scenario | Feature | Criticality | Score | Confidence | Kane | Top Gap |
+|---|---|---|---|---|---|---|---|
+| `AC-001` | `SC-001` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-002` | `SC-002` | GENERAL | LOW | **25** | 🔴 LOW | ❌ failed | Kane AI functional verification failed |
+| `AC-003` | `SC-003` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-004` | `SC-004` | GENERAL | LOW | **25** | 🔴 LOW | ❌ failed | Kane AI functional verification failed |
+| `AC-005` | `SC-005` | — | ⚰️ DEPRECATED | — | ⚰️ DEPRECATED | ⏭️ skipped | removed in v1.1.0 |
+| `AC-006` | `SC-006` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-007` | `SC-007` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-008` | `SC-008` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-009` | `SC-009` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-010` | `SC-010` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-011` | `SC-011` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+| `AC-012` | `SC-012` | GENERAL | LOW | **75** | 🟡 HIGH | timeout | Missing negative/error scenario coverage |
+| `AC-013` | `SC-013` | GENERAL | LOW | **100** | 🟢 VERY_HIGH | ✅ passed |  |
+| `AC-014` | `SC-014` | GENERAL | LOW | **25** | 🔴 LOW | ❌ failed | Kane AI functional verification failed |
+| `AC-015` | `SC-015` | GENERAL | LOW | **75** | 🟡 HIGH | ✅ passed | Missing negative/error scenario coverage |
+
+> **How to close these gaps:** A *Missing negative/error scenario coverage* gap deducts **25 points** from the confidence score, and for HIGH-criticality features (TASK_CRUD, TASK_LIST, ARCHIVE) it compounds with edge-case and mobile penalties — which is why happy-path-only HIGH-crit ACs land at score **25 / LOW** while MEDIUM-crit ACs with the same gap sit at **75 / HIGH**. Resolve it by listing the negative or error case as its own acceptance criterion in the BRD and naming it in the release notes (e.g. *"User cannot submit a task with an empty title"*). The pipeline picks the new AC up on the next release-notes diff, generates a scenario for it, and Kane verifies it against the AUT — closing the gap and lifting the score on the next run.
+
+## Stage 3 · Generated Playwright Tests
+
+**14** test function(s) in `tests/playwright/test_powerapps.py`:
+
+| Scenario | Test Case | Function |
+|---|---|---|
+| `SC-001` | `TC-001` | `test_sc_001_user_can_create_a_task_with_a_title_and` |
+| `SC-002` | `TC-002` | `test_sc_002_user_can_list_all_tasks_ordered_by_due_d` |
+| `SC-003` | `TC-003` | `test_sc_003_user_can_mark_a_task_as_complete` |
+| `SC-004` | `TC-004` | `test_sc_004_user_can_edit_a_task_s_title_or_due_date` |
+| `SC-006` | `TC-006` | `test_sc_006_user_can_filter_the_task_list_by_status` |
+| `SC-007` | `TC-007` | `test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app` |
+| `SC-008` | `TC-008` | `test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app` |
+| `SC-009` | `TC-009` | `test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io` |
+| `SC-010` | `TC-010` | `test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg` |
+| `SC-011` | `TC-011` | `test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via` |
+| `SC-012` | `TC-012` | `test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the` |
+| `SC-013` | `TC-013` | `test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel` |
+| `SC-014` | `TC-014` | `test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel` |
+| `SC-015` | `TC-015` | `test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app` |
+
+## Stage 4 · Test Selection
+
+Run type: **full** · **14** scenario(s) submitted to HyperExecute
+
+## Stage 5 · HyperExecute Regression (Multi-Browser)
+
+| Metric | Raw Value | Normalized | Evidence |
+|--------|-----------|------------|----------|
+| HyperExecute Job | `b342f682-bad1-49a6-bb29-72e8ce7fbee1` | — | [Open in LambdaTest ↗](https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=b342f682-bad1-49a6-bb29-72e8ce7fbee1) |
+| Job Status | `failed` | **PASSED** *(reconciled: all tasks passed)* | source: api_ok |
+| Parser Status | `api_ok` | — | how status was resolved |
+| Browsers | — | — | chrome, firefox |
+| Total tasks | 28 | — | submitted to HyperExecute |
+| ✅ Passed | 28 | — | task-level results |
+| ❌ Failed | 0 | — | task-level results |
+| Pass rate | 71.4% | — | across all browsers |
+
+> **Status resolution:** ✅ Job status fetched directly from HyperExecute API
+
+### Per-Test Results
+
+| Test | Status | Session |
+|---|---|---|
+| `tests/playwright/test_powerapps.py::test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=2PTH1-HCXKY-YPEFF-JDXEE) |
+| `tests/playwright/test_powerapps.py::test_sc_002_user_can_list_all_tasks_ordered_by_due_d` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=5MNIR-QHRFH-K4J6K-M7VFJ) |
+| `tests/playwright/test_powerapps.py::test_sc_012_user_can_access_taskflow_under_a_session_prefixed_url_of_the` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=89CQU-TABL6-8MSSY-TVSWC) |
+| `tests/playwright/test_powerapps.py::test_sc_015_viewed_the_session_b_task_list_on_taskflow_v2_0_0_vercel_app` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=AKVPR-8QRS4-XZFOO-H5GJW) |
+| `tests/playwright/test_powerapps.py::test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=C9DKA-DAEWG-DFKP5-MPB9P) |
+| `tests/playwright/test_powerapps.py::test_sc_004_user_can_edit_a_task_s_title_or_due_date` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=DGUQO-UMSD1-QAFOV-8DVYX) |
+| `tests/playwright/test_powerapps.py::test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=E84JZ-4AMQW-RVW0L-DYPDF) |
+| `tests/playwright/test_powerapps.py::test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=EOYAO-VF5GV-ABJYN-PEYYU) |
+| `tests/playwright/test_powerapps.py::test_sc_001_user_can_create_a_task_with_a_title_and` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=JMW3S-LDZO6-QNWTW-1NQ3J) |
+| `tests/playwright/test_powerapps.py::test_sc_003_user_can_mark_a_task_as_complete` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=L1TST-KVCJI-BZS85-4LOAK) |
+| `tests/playwright/test_powerapps.py::test_sc_006_user_can_filter_the_task_list_by_status` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=LBUYQ-6SSDQ-1DMED-ZRAEW) |
+| `tests/playwright/test_powerapps.py::test_sc_013_opened_an_empty_taskflow_task_list_on_taskflow_v2_0_0_vercel` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=LCPBK-EN7DM-9SVTS-E8FW8) |
+| `tests/playwright/test_powerapps.py::test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=R2QTT-WL2L4-ALT2U-6GXBW) |
+| `tests/playwright/test_powerapps.py::test_sc_014_navigated_to_a_taskflow_tasks_page_on_taskflow_v2_0_0_vercel` | ✅ passed | [View session](https://automation.lambdatest.com/test?testID=RDPSU-BU8FE-UPCTX-DP1HX) |
+
+### Browser Breakdown
+
+| Scenario | Chrome | Firefox |
+|---| --- | --- |
+| `SC-001` | ✅ passed | ✅ passed |
+| `SC-002` | ✅ passed | ✅ passed |
+| `SC-003` | ✅ passed | ✅ passed |
+| `SC-004` | ✅ passed | ✅ passed |
+| `SC-006` | ✅ passed | ✅ passed |
+| `SC-007` | ✅ passed | ✅ passed |
+| `SC-008` | ✅ passed | ✅ passed |
+| `SC-009` | ✅ passed | ✅ passed |
+| `SC-010` | ✅ passed | ✅ passed |
+| `SC-011` | ✅ passed | ✅ passed |
+| `SC-012` | ✅ passed | ✅ passed |
+| `SC-013` | ✅ passed | ✅ passed |
+| `SC-014` | ✅ passed | ✅ passed |
+| `SC-015` | ✅ passed | ✅ passed |
+
+## Stage 6 · Traceability Matrix
+
+**10/14** regression tests passed across **2** browser(s) — 71.4% pass rate
+
+| Req | Acceptance Criterion | Scenario | Test Case | Kane AI | Kane Session | What Kane Saw | Chrome | Firefox | Playwright | Session | Overall |
+|---|---|---|---|---|---|---|--- | ---|---|---|---|
+| `AC-001` | User can create a task with a title and a due date | `SC-001` | `TC-001` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMN8DVDY77Y8SVFASVQ3/dashboard/share/US_9VTGL92GQQA9ZU4LNZ3H9H4TMN4NDE8PY47HIZF1LOEZP25XSJB8O6N162SK3LP5?type=summary&agentView=true&fqdn=summary-page) | created a new task with a title and due date on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=JMW3S-LDZO6-QNWTW-1NQ3J) | ✅ passed |
+| `AC-002` | User can list all tasks ordered by due date, with overd… | `SC-002` | `TC-002` | failed | — | — | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=5MNIR-QHRFH-K4J6K-M7VFJ) | ❌ failed |
+| `AC-003` | User can mark a task as complete | `SC-003` | `TC-003` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMM6A5KREH93F4TT0YBM/dashboard/share/US_S7A4BG8HPZJIHYKZIV5MXLQ932IHLUU08MBYS6I9QDTP6NNT7ZXD6SDU1QJHE9DM?type=summary&agentView=true&fqdn=summary-page) | marked a task as complete on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=L1TST-KVCJI-BZS85-4LOAK) | ✅ passed |
+| `AC-004` | User can edit a task's title or due date | `SC-004` | `TC-004` | failed | — | — | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=DGUQO-UMSD1-QAFOV-8DVYX) | ❌ failed |
+| `AC-005` | User can delete a task | `SC-005` | `TC-005` | skipped | — | removed in v1.1.0 | ⚠️ — | ⚠️ — | deprecated | — | 🚫 deprecated |
+| `AC-006` | User can filter the task list by status (active / done … | `SC-006` | `TC-006` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DMNKEHYSAKGTBVGYQ4G0/dashboard/share/US_L2G9GWO271CYERWRU5H7TVULAVJIQE6AY84ZTW5RDB8FG023ZLQV1KBQ55MUOTGV?type=summary&agentView=true&fqdn=summary-page) | filtered the task list by status on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=LBUYQ-6SSDQ-1DMED-ZRAEW) | ✅ passed |
+| `AC-007` | User can attach a colored label to a task and filter by… | `SC-007` | `TC-007` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DS75EWTGRXD760BSSZ0D/dashboard/share/US_PWPDEQCNZBBD93L132KDGE1ZMXGNY1JGQISEODUZG26RADRT4PYKLH9FRAS0BHBX?type=summary&agentView=true&fqdn=summary-page) | applied a red label to a task and filtered the task list by that label on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=C9DKA-DAEWG-DFKP5-MPB9P) | ✅ passed |
+| `AC-008` | User can view archived tasks on the Archive page and re… | `SC-008` | `TC-008` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0DS7F63A9B75Z4SMYKX61/dashboard/share/US_VOLK8IQIFKFH0RWQPBD0WC12GZRSATDV6AIRV2XOOV7LZMXXBWXHT0X9HXSUVQLF?type=summary&agentView=true&fqdn=summary-page) | archived and restored a task on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=E84JZ-4AMQW-RVW0L-DYPDF) | ✅ passed |
+| `AC-009` | User can set a task's priority to High, Medium, or Low … | `SC-009` | `TC-009` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0GTKCCYGNS34PTCS58ACE/dashboard/share/US_X8R8SZ0NUHYNVJGLU3WHTCWER3B0N0WE574HU14RWXJIMMCJVXPOM81G0UIK7SYW?type=summary&agentView=true&fqdn=summary-page) | set a task priority on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=EOYAO-VF5GV-ABJYN-PEYYU) | ✅ passed |
+| `AC-010` | User can change a task's priority on the edit screen | `SC-010` | `TC-010` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0H394HSPYAVCD7WQDSWZJ/dashboard/share/US_R1DN4B2VTED52UQE6KNZEMWMA4C6BBS6RDVTG1JJO02O7F1OW9ON2DKFDSLB7TTR?type=summary&agentView=true&fqdn=summary-page) | created and updated a task on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=R2QTT-WL2L4-ALT2U-6GXBW) | ✅ passed |
+| `AC-011` | User can archive all completed tasks in one click via a… | `SC-011` | `TC-011` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0HB5W8WQFZCGQ8BYY7S9J/dashboard/share/US_18DEALYHQCOLWI2E29IJ9A28AY0PQM0HAHZCOWRFTVRAVDGYEJ3YKCO4BZFITNWI?type=summary&agentView=true&fqdn=summary-page) | archived completed tasks on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=2PTH1-HCXKY-YPEFF-JDXEE) | ✅ passed |
+| `AC-012` | User can access TaskFlow under a session-prefixed URL o… | `SC-012` | `TC-012` | timeout | — | — | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=89CQU-TABL6-8MSSY-TVSWC) | ❌ failed |
+| `AC-013` | User visiting a fresh session URL sees an empty task li… | `SC-013` | `TC-013` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0KXEGCE2SWSF0EG0X8RG6/dashboard/share/US_XHIN7QARIPAPIH5I2ZAK19WEPRL0XMHLYEM79GYT6R4AULS6BRXXHTVV0J8O6NHP?type=summary&agentView=true&fqdn=summary-page) | Opened an empty TaskFlow task list on taskflow-v2-0-0.vercel.app. | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=LCPBK-EN7DM-9SVTS-E8FW8) | ✅ passed |
+| `AC-014` | User visiting a URL with a malformed session ID (not th… | `SC-014` | `TC-014` | failed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0MGW5GSWG6TD55S4FDJQE/dashboard/share/US_9V3UZBMUGO2YKRCYSXTLGR1CPEVBX9LFOE928YXA5FAIVLYBO3IMZOA7QCOXKCHT?type=summary&agentView=true&fqdn=summary-page) | navigated to a Taskflow tasks page on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=RDPSU-BU8FE-UPCTX-DP1HX) | ❌ failed |
+| `AC-015` | Tasks, archives, labels, and priorities created under o… | `SC-015` | `TC-015` | passed | [session](https://test-manager.lambdatest.com/projects/01KRQ24HY25E1QFPMX9KJYEJGA/test-cases/01KTM0Q0486Y175RGX5JJHHQ16/dashboard/share/US_1PX41S3OV8KKCVR90Q3JMNA9XTRDWCEKUOB8W7S85T6Y1JOJLVRB6HB1J6F84E2Z?type=summary&agentView=true&fqdn=summary-page) | viewed the Session B task list on taskflow-v2-0-0.vercel.app | ✅ passed | ✅ passed | passed | [session](https://automation.lambdatest.com/test?testID=AKVPR-8QRS4-XZFOO-H5GJW) | ✅ passed |
+
+<details>
+<summary>Kane AI verification steps (expand)</summary>
+
+**`AC-001` — User can create a task with a title and a due date**
+
+
+_Opened the task creation screen.
+Entered a task title and set a due date.
+Saved the task and confirmed it appears in the tasks list with a due date shown (e.g., “2026-06-10”)._
+
+**`AC-002` — User can list all tasks ordered by due date, with overdue tasks pinned to the top**
+
+
+_{"type":"recording_state","enabled":true,"session_id":"fb01c4f2-4535-4ce7-8160-a70cde2cde40","persist":true,"session_name":"SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve","test_path":"C:\\Projects\\agentic-stlc-kane-hyperexecute\\.testmuai\\tests\\SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve_test.md","output_path":"C:\\Projects\\agentic-stlc-kane-hyperexecute\\.testmuai\\tests\\output-SC-002_sc_002_sorted_tasks_by_due_date_on_nosecretformula_ve"}_
+
+**`AC-003` — User can mark a task as complete**
+
+
+_Opened TaskFlow’s tasks page and located the target task in the task list.
+Used the task’s completion checkbox in the “Done” column to mark it as complete.
+Confirmed the task now shows as completed (checkbox is checked) and remained on the TaskFlow site._
+
+**`AC-004` — User can edit a task's title or due date**
+
+
+_{"type":"recording_state","enabled":true,"session_id":"d67d838f-d162-418a-b974-47c1a8f2672e","persist":true,"session_name":"SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date","test_path":"C:\\Projects\\agentic-stlc-kane-hyperexecute\\.testmuai\\tests\\SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date_test.md","output_path":"C:\\Projects\\agentic-stlc-kane-hyperexecute\\.testmuai\\tests\\output-SC-004_sc_004_user_can_edit_a_task_s_title_or_due_date"}_
+
+**`AC-006` — User can filter the task list by status (active / done / all)**
+
+
+_Opened TaskFlow and went to the tasks page.
+Used the status filter to switch between Active, Done, and All task views.
+Finished on the All view of the task list (URL shows status=all)._
+
+**`AC-007` — User can attach a colored label to a task and filter by label**
+
+
+_Opened an existing task (or created one) in TaskFlow and applied a red label to it.
+Used the label filter controls to filter the task list to show only tasks with the red label.
+Ended on the tasks page filtered by the red label (URL includes label=red), confirming the labeled task was visible in the list._
+
+**`AC-008` — User can view archived tasks on the Archive page and restore them to the active list**
+
+
+_Created a new task titled "Archive demo task" with due date 2026-05-20 using the Add a task form.
+Archived the "Archive demo task" item from the main task list.
+Opened the Archive view and confirmed "Archive demo task" appeared in the archived list.
+Restored "Archive demo task" from the Archive view.
+Returned to the main task list and verified "Archive demo task" was visible again in the active tasks list._
+
+**`AC-009` — User can set a task's priority to High, Medium, or Low (or leave it unset)**
+
+
+_Opened taskflow-v2-0-0.vercel.app.
+Used the “Add a task” form to set the task Priority using the dropdown (showing “high”).
+Completed the task on the same site without navigating elsewhere._
+
+**`AC-010` — User can change a task's priority on the edit screen**
+
+
+_Opened Taskflow and used the Add a task form to create a new task titled "Priority demo task" with a due date of 2026-05-20.
+Opened the task’s Edit link, changed its priority to High, and saved the changes.
+Returned to the tasks list and confirmed the "Priority demo task" row shows a High priority (HIGH) chip._
+
+**`AC-011` — User can archive all completed tasks in one click via an "Archive completed" button at the bottom of the task list**
+
+
+_Created two tasks named “Bulk archive A” and “Bulk archive B” and marked both as complete.
+Clicked the “Archive completed” button at the bottom of the task list to archive completed items.
+Confirmed on the Archive page that both “Bulk archive A” and “Bulk archive B” appear in the archive table (and are no longer in the active task list)._
+
+**`AC-012` — User can access TaskFlow under a session-prefixed URL of the form /s/<sessionid>/tasks where sessionid is a 32-character lowercase hex UUID**
+
+
+_kane-cli run wedged past 360s — killed_
+
+**`AC-013` — User visiting a fresh session URL sees an empty task list with the create form available; the session is created implicitly on first write with no signup required**
+
+
+_Opened TaskFlow using a fresh, unique session URL.
+Waited for the Tasks page to fully render and verified the list was empty ("No tasks.").
+Confirmed the task creation form was available (Title field, Due date field, and an "Add task" button).
+No signup, login, or registration was required to view the task list or the create-task form._
+
+**`AC-014` — User visiting a URL with a malformed session ID (not the literal "default" and not a 32-character lowercase hex string) receives an HTTP 404 response**
+
+
+_The run attempted to open a Taskflow “tasks” page using the link: https://taskflow-v2-0-0.vercel.app/s/not-a-valid-hex-uuid/tasks.
+The page shown in the screenshots is a “Not Found” error page that says the requested URL was not found on the server, indicating the link/path is invalid or the workspace/session ID in the URL is not recognized.
+Because the run landed on this error page, there were no tasks or normal page controls available to interact with, so it could not proceed with any further steps.
+After the initial navigation, the remaining recorded steps failed due to missing step data (“step file not found”), so no additional actions were completed beyond loading the error page._
+
+**`AC-015` — Tasks, archives, labels, and priorities created under one session are invisible and untouchable from any other session**
+
+
+_Opened the Taskflow app and navigated to the Tasks page for Session B.
+Checked the task list under Session B and it showed an empty state (“No tasks.”).
+Confirmed Session B’s task list did not include the “Session A task,” verifying tasks are isolated between sessions._
+
+</details>
+
+### Result Analysis
+
+- **Overall health:** critical
+- **Risk level:** high
+- **Kane AI pass rate:** 76.9%
+- **Playwright pass rate:** 71.4%
+
+- AC-002: failed Kane AI verification; Playwright status is passed.
+- AC-004: failed Kane AI verification; Playwright status is passed.
+- AC-014: failed Kane AI verification; Playwright status is passed.
+
+> Release carries medium risk: 3 failing requirement(s). Review browser-specific failures before conditional approval.
+
+**Failing scenarios:**
+- ❌ `SC-002`
+- ❌ `SC-004`
+- ❌ `SC-012`
+- ❌ `SC-014`
+
+## Data Validation
+
+Traceability integrity: **✅ VALID**
+
+## Requirement Coverage Analysis
+
+| Metric | Value |
+|--------|-------|
+| Total Requirements | 15 |
+| Fully Covered | 14 (100.0%) |
+| Partially Covered | 0 |
+| Uncovered | 0 |
+| ⚰️ Deprecated (tombstone) | 1 |
+| Negative Test Coverage | 7.1% |
+| Mobile Coverage | 0.0% |
+| Android Coverage | 0.0% |
+| HyperExecute Coverage | 100.0% |
+| Flaky Requirements | 0 |
+| High-Risk Requirements | 2 |
+| Missing Scenario Types | 13 |
+
+### Requirement Coverage Detail
+
+| Requirement | Coverage | Tests | Pass | Fail | Missing | Risk |
+|-------------|----------|-------|------|------|---------|------|
+| `AC-001` | ✅ FULL | 2 | 2 | 0 | 2 | 🟡 MEDIUM |
+| `AC-002` | ✅ FULL | 2 | 2 | 0 | 1 | 🔴 HIGH |
+| `AC-003` | ✅ FULL | 2 | 2 | 0 | 2 | 🟡 MEDIUM |
+| `AC-004` | ✅ FULL | 2 | 2 | 0 | 2 | 🔴 HIGH |
+| `AC-005` | ⚰️ DEPRECATED | — | — | — | — | — *(removed in v1.1.0)* |
+| `AC-006` | ✅ FULL | 2 | 2 | 0 | 1 | 🟢 LOW |
+| `AC-007` | ✅ FULL | 2 | 2 | 0 | 1 | 🟢 LOW |
+| `AC-008` | ✅ FULL | 2 | 2 | 0 | 1 | 🟡 MEDIUM |
+| `AC-009` | ✅ FULL | 2 | 2 | 0 | 0 | 🟢 LOW |
+| `AC-010` | ✅ FULL | 2 | 2 | 0 | 0 | 🟢 LOW |
+| `AC-011` | ✅ FULL | 2 | 2 | 0 | 1 | 🟡 MEDIUM |
+| `AC-012` | ✅ FULL | 2 | 2 | 0 | 0 | 🟢 LOW |
+| `AC-013` | ✅ FULL | 2 | 2 | 0 | 1 | 🟢 LOW |
+| `AC-014` | ✅ FULL | 2 | 2 | 0 | 0 | 🟡 MEDIUM |
+| `AC-015` | ✅ FULL | 2 | 2 | 0 | 1 | 🟡 MEDIUM |
+
+### Feature Coverage Heatmap
+
+| Feature | Criticality | Total | Covered | Partial | Uncovered |
+|---------|-------------|-------|---------|---------|-----------|
+| GENERAL | 🟡 MEDIUM | 4 | 4 | 0 | 0 |
+| TASK_CRUD | 🔴 HIGH | 3 | 3 | 0 | 0 |
+| ARCHIVE | 🔴 HIGH | 3 | 3 | 0 | 0 |
+| TASK_LIST | 🔴 HIGH | 2 | 2 | 0 | 0 |
+| FILTER | 🟡 MEDIUM | 1 | 1 | 0 | 0 |
+| LABELS | 🟡 MEDIUM | 1 | 1 | 0 | 0 |
+
+### Missing Scenario Types (Coverage Gaps)
+
+**`AC-001`** — TASK_CRUD (criticality: HIGH)
+- `[🔴 NEGATIVE]` Submit task form with empty title
+- `[🟡 EDGE]` Create a task with a past-due date
+
+**`AC-002`** — TASK_LIST (criticality: HIGH)
+- `[🟡 EDGE]` List view when no tasks exist
+
+**`AC-003`** — TASK_CRUD (criticality: HIGH)
+- `[🔴 NEGATIVE]` Submit task form with empty title
+- `[🟡 EDGE]` Create a task with a past-due date
+
+**`AC-004`** — TASK_CRUD (criticality: HIGH)
+- `[🔴 NEGATIVE]` Submit task form with empty title
+- `[🟡 EDGE]` Create a task with a past-due date
+
+**`AC-006`** — FILTER (criticality: MEDIUM)
+- `[🔴 NEGATIVE]` Apply filter that produces no results
+
+**`AC-007`** — LABELS (criticality: MEDIUM)
+- `[🔴 NEGATIVE]` Filter by a label with no tasks attached
+
+**`AC-008`** — ARCHIVE (criticality: HIGH)
+- `[🟡 EDGE]` Archive page is empty
+
+**`AC-011`** — ARCHIVE (criticality: HIGH)
+- `[🟡 EDGE]` Archive page is empty
+
+**`AC-013`** — TASK_LIST (criticality: HIGH)
+- `[🟡 EDGE]` List view when no tasks exist
+
+**`AC-015`** — ARCHIVE (criticality: HIGH)
+- `[🟡 EDGE]` Archive page is empty
+
+> **Why these aren't auto-generated:** This is a coverage-gap report, not a pipeline failure. The pipeline only generates tests from explicit acceptance criteria in the BRD — auto-authoring negative/edge scenarios would require either an LLM-driven test generator (explicitly disallowed by the deterministic-pipeline design) or expanding the BRD's contract. To close a gap, add an explicit AC for it to the BRD and the pipeline will pick it up on the next release-notes diff.
+
+## Quality Gates
+
+**Overall: ❌ FAILED**  (1 critical failures, 0 warnings)
+
+| Gate | Severity | Status | Actual | Threshold |
+|------|----------|--------|--------|-----------|
+| Minimum requirement coverage | 🟡 WARNING | ✅ | 100.0 % | 50.0 % |
+| Minimum test pass rate | 🔴 CRITICAL | ❌ | 70.0 % | 75.0 % |
+| Flaky test threshold | 🟡 WARNING | ✅ | 0 flaky requirements | 5 flaky requirements |
+| Critical requirements covered | 🟡 WARNING | ✅ | 0 uncovered HIGH-criticality requirements | 0 uncovered HIGH-criticality requirements |
+| No failing high-risk requirements | 🔴 CRITICAL | ✅ | 0 failing high-risk requirements | 0 failing high-risk requirements |
+
+## Change Impact Analysis
+
+**23 file(s) changed — max impact: 🔴 CRITICAL**
+
+> FULL regression required — 11 requirement(s) impacted by critical file changes. Run all scenarios.
+
+**11 requirement(s) impacted:** `AC-001`, `AC-002`, `AC-003`, `AC-004`, `AC-005`, `AC-006`, `AC-007`, `AC-008`, `AC-009`, `AC-010`...
+
+## Release Recommendation
+
+### 🔴 RED
+
+Block release because pass rate or coverage is below the acceptance threshold.
+
+- Requirements covered: **15/15**
+- Browsers tested: **chrome, firefox**
+- Playwright pass rate: **71.4%** (10 passed, 4 failed)
+
+
+==============================================================
+  ✅  [Stage 9] GITHUB_SUMMARY — complete
+==============================================================
+  Sections                  : stage-status, kane-results, playwright-results, traceability, verdict
+  Verdict                   : RED
+  HE dashboard              : https://hyperexecute.lambdatest.com/hyperexecute/task?jobId=b342f682-bad1-49a6-bb29-72e8ce7fbee1
+  Summary size              : 32,520 chars
+  Output                    : reports\pipeline_summary.md
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/write_github_summary.py ok
+
+[post-pipeline] running ci/release_diff.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 0] RELEASE_DIFF
+     Compute Add/Edit/Delete operations from release notes diff
+──────────────────────────────────────────────────────────────
+[release_diff] notes=release_notes\v2.0.0.md prev_lock=release_notes\v1.2.0.lock.json threshold=0.5
+
+==============================================================
+  ✅  [Stage 0] RELEASE_DIFF — complete
+==============================================================
+  From release              : v1.2.0
+  To release                : v2.0.0
+  ADD                       : 4
+  EDIT                      : 0
+  DELETE                    : 0
+  UNMATCHED                 : 2
+  Mode                      : PROPOSE
+  Delta JSON                : reports\release_delta.json
+  Delta MD                  : reports\release_delta.md
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/release_diff.py ok
+
+[post-pipeline] running ci/impact_analysis.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 7c] IMPACT_ANALYSIS
+     Determine which requirements are impacted by recent changes
+──────────────────────────────────────────────────────────────
+
+==============================================================
+  ✅  [Stage 7c] IMPACT_ANALYSIS — complete
+==============================================================
+  Changed files             : 24
+  Impacted features         : 0
+  Impacted requirements     : 15
+  Impacted scenarios        : 15
+  Max impact level          : CRITICAL
+  Output                    : reports/impacted_requirements.json
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/impact_analysis.py ok
+
+[post-pipeline] running ci/quality_gates.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 7d] QUALITY_GATES
+     Evaluate pipeline quality gates against coverage and execution data
+──────────────────────────────────────────────────────────────
+
+[QUALITY_GATES] CRITICAL failures (pipeline blocked):
+  ❌  Minimum test pass rate
+      actual=71.4 %  threshold=75.0
+      10 passed of 14 executed
+
+==============================================================
+  ❌  [Stage 7d] QUALITY_GATES — FAILED
+==============================================================
+  Gates evaluated           : 5
+  Critical failures         : 1
+  Warnings                  : 0
+  Overall                   : FAIL
+  Output                    : reports/quality_gates.json
+  Completed at              : 16:32:08 UTC
+==============================================================
+[warn] Advisory script failed: ci/quality_gates.py (exit 1)
+
+[post-pipeline] running ci/fetch_rca.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 7e] FETCH_RCA
+     Fetch LambdaTest AI Root Cause Analysis for failed tests
+──────────────────────────────────────────────────────────────
+[fetch_rca] No failed tests with session links found — nothing to analyze
+
+==============================================================
+  ✅  [Stage 7e] FETCH_RCA — complete
+==============================================================
+  Failed tests              : 0
+  RCA analyses              : 0
+  Output                    : reports/rca_report.json
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/fetch_rca.py ok
+
+[post-pipeline] running ci/failure_intelligence.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 8a] Failure Intelligence
+     Multi-source failure classification and auto-remediation engine
+──────────────────────────────────────────────────────────────
+  Loading artifacts…
+  Found 4 failing requirement(s): ['AC-002', 'AC-004', 'AC-012', 'AC-014']
+  Written: C:\Projects\agentic-stlc-kane-hyperexecute\reports\failure_intelligence.json
+  Written: C:\Projects\agentic-stlc-kane-hyperexecute\reports\failure_intelligence.md
+
+==============================================================
+  ✅  [Stage 8a] Failure Intelligence — complete
+==============================================================
+  Total failures            : 4
+  Classified                : 3
+  Auto-remediable           : 3
+  Output JSON               : failure_intelligence.json
+  Output Markdown           : failure_intelligence.md
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/failure_intelligence.py ok
+
+[post-pipeline] running ci/self_healing.py ...
+──────────────────────────────────────────────────────────────
+  ▶  [Stage 8b] Self-Healing
+     Autonomous patch application based on Failure Intelligence report
+──────────────────────────────────────────────────────────────
+  [WARN] File not found: C:\Projects\agentic-stlc-kane-hyperexecute\kane\objectives.json — using default.
+  Processing 4 failure(s)…
+  [SC-002] failure_type=KANE_WRONG_TASK
+  [SC-004] failure_type=KANE_WRONG_TASK
+  [SC-012] failure_type=UNKNOWN_FAILURE
+  [SC-014] failure_type=KANE_STEP_LIMIT
+  Updated: C:\Projects\agentic-stlc-kane-hyperexecute\scenarios\scenarios.json
+  Written: C:\Projects\agentic-stlc-kane-hyperexecute\reports\self_healing_report.json
+  Written: C:\Projects\agentic-stlc-kane-hyperexecute\reports\self_healing.md
+
+==============================================================
+  ✅  [Stage 8b] Self-Healing — complete
+==============================================================
+  Patches applied           : 3
+  Patches skipped           : 1
+  Scenarios requiring rerun : 3
+  Rerun scenarios           : SC-002, SC-004, SC-014
+  Output JSON               : self_healing_report.json
+  Output Markdown           : self_healing.md
+  Completed at              : 16:32:08 UTC
+==============================================================
+[post-pipeline] ci/self_healing.py ok
+
+[post-pipeline] running ci/validate_report.py ...
+[validate] VALID — 0 error(s), 0 warning(s)
+[post-pipeline] ci/validate_report.py ok
+
+[post-pipeline] running ci/pipeline_metrics.py ...
+Pipeline Metrics Summary
+==================================================
+  Total duration : 517.0s (8.6 min)
+  Verdict        : RED
+  Tests passed   : 10/15
+  Cache hits     : 0 | misses: 1
+  Demo mode      : false
+
+Stage breakdown:
+  stage1_kane                517.0s  [live]
+[post-pipeline] ci/pipeline_metrics.py ok
+
+==============================================================
+  ✅  [Stage 7] POST_PIPELINE — complete
+==============================================================
+  Scripts run               : 6 critical + 8 advisory
+  Total duration            : 326.2s
+  Traceability              : reports/traceability_matrix.{md,json}
+  Verdict                   : reports/release_recommendation.md
+  Summary                   : GitHub Actions Step Summary
+  Completed at              : 16:32:09 UTC
+==============================================================
+
+
+[pipeline] complete — total elapsed 326.2s

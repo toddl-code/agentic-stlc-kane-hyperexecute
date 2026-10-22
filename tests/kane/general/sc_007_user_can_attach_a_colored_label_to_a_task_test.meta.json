@@ -4,7 +4,7 @@
   "feature": "general",
   "description_hash": "232d50316b1c",
   "description": "User can attach a colored label to a task and filter by label",
-  "objective": "On https://nosecretformula.vercel.app/ \u2014 User can attach a colored label to a task and filter by label",
+  "objective": "On https://taskflow-v2-0-0.vercel.app/ \u2014 User can attach a colored label to a task and filter by label. Stay on the AUT \u2014 do NOT navigate to any kaneai-playground or ecommerce-playground site.",
   "asset": "sc_007_user_can_attach_a_colored_label_to_a_task_test.md",
-  "recorded_at": "2026-05-16T07:07:00.334308+00:00"
+  "recorded_at": "2026-06-08T16:20:07.305299+00:00"
 }

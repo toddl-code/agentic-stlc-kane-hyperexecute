@@ -161,7 +161,7 @@
       "scenario_id": "SC-005",
       "test_case_id": "TC-005",
       "function_name": "test_sc_005_user_can_delete_a_task",
-      "feature": "general",
+      "feature": "TASK_CRUD",
       "criticality": "DEPRECATED",
       "coverage_categories": [],
       "kane_ai_result": "skipped",

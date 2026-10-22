@@ -137,17 +137,19 @@ class ScenarioGenerationSkill(AgentSkill):
 
     def _infer_feature(self, description: str) -> str:
         desc_lower = description.lower()
+        # Ordered most-specific → most-general so ARCHIVE wins over TASK_CRUD
+        # when a requirement mentions "archive a task".
         keywords = {
-            "CART": ["cart", "add to cart", "basket"],
-            "CHECKOUT": ["checkout", "payment", "order", "purchase"],
-            "AUTH": ["login", "sign in", "logout", "auth", "register"],
-            "SEARCH": ["search", "find", "query"],
-            "CATALOG": ["catalog", "category", "browse", "listing"],
-            "PRODUCT_DETAIL": ["product detail", "product page", "pdp"],
-            "FILTER": ["filter", "refine", "sort by brand"],
-            "SORT": ["sort", "order by"],
-            "WISHLIST": ["wishlist", "wish list", "save for later"],
-            "GUEST": ["guest", "without login", "without account"],
+            "ARCHIVE":   ["archive", "restore", "archived"],
+            "LABELS":    ["label", "colored label", "color label", "tag"],
+            "FILTER":    ["filter", "status filter", "active / done", "active/done"],
+            "TASK_LIST": ["list all tasks", "ordered by due date", "task list",
+                          "overdue", "pinned", "sort by due"],
+            "TASK_CRUD": ["create a task", "add a task", "new task",
+                          "edit a task", "edit task", "update a task",
+                          "delete a task", "remove a task",
+                          "mark a task as complete", "complete a task",
+                          "task title", "due date"],
         }
         for feature, kws in keywords.items():
             if any(kw in desc_lower for kw in kws):

@@ -1,0 +1,393 @@
+{
+  "summary": {
+    "run_type": "full",
+    "requirements_covered": 11,
+    "requirements_total": 11,
+    "executed": 10,
+    "passed": 7,
+    "pass_rate": 70.0,
+    "browsers_tested": [
+      "chrome",
+      "firefox"
+    ],
+    "untested_requirements": [],
+    "failing_scenarios": [
+      "SC-003",
+      "SC-008",
+      "SC-011"
+    ]
+  },
+  "rows": [
+    {
+      "requirement_id": "AC-001",
+      "acceptance_criterion": "User can create a task with a title and a due date",
+      "scenario_id": "SC-001",
+      "test_case_id": "TC-001",
+      "function_name": "test_sc_001_user_can_create_a_task_with_a_title_and",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "created a new task on nosecretformula.vercel.app",
+      "kane_summary": "Opened nosecretformula.vercel.app and went to the tasks page.\nFilled in the required fields (task title and due date) and saved the new task.\nConfirmed the tasks list shows at least one task with a due date in the DUE column.",
+      "kane_steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to start creating a task with ti",
+        "type: Filled 'API created task' via DOM locator: role=textbox[name='Title']",
+        "type: Filled '2026-05-21' via DOM locator: role=textbox[name='Due date']",
+        "click: Clicked via DOM locator: role=button[name='Add task']",
+        "analyze: ANALYZE(visual, 'Is the task list table visible showing at least one task row wi",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can create a task with a title and"
+      ],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=AWA5G-H4IQB-EISPK-P5V4O",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-002",
+      "acceptance_criterion": "User can list all tasks ordered by due date, with overdue tasks pinned to the top",
+      "scenario_id": "SC-002",
+      "test_case_id": "TC-002",
+      "function_name": "test_sc_002_user_can_list_all_tasks_ordered_by_due_d",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "created two tasks and verified their order on nosecretformula.vercel.app",
+      "kane_summary": "Opened nosecretformula.vercel.app to add two tasks.\nCreated a task titled \u201cOverdue 002\u201d with the due date 2026-05-10.\nCreated a second task titled \u201cFuture 002\u201d with the due date 2026-05-25.\nVerified the task list shows \u201cOverdue 002\u201d at the top, above \u201cFuture 002,\u201d because its due date is earlier (relative to 2026-05-17).\nStopped after confirming the correct order and did not delete any tasks.",
+      "kane_steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ as specified in the objective.",
+        "wait: Wait briefly (no UI change) while confirming the task 'Overdue 002' with due dat",
+        "wait: Wait briefly on the Tasks page (no UI change) while confirming 'Future 002' is a",
+        "analyze: ANALYZE(visual, \"In the task list table shown on the page (under the DONE/TITLE/",
+        "assert: Confirm the task list shows 'Overdue 002' pinned at the top of the list (above '",
+        "analyze: ANALYZE(visual, 'Is the task titled \"Overdue 002\" shown as the first (top) item ",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 Step 1 (SETUP): create a task titled 'O"
+      ],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=NEUZF-BXM4C-73IXO-4PQYQ",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-003",
+      "acceptance_criterion": "User can mark a task as complete",
+      "scenario_id": "SC-003",
+      "test_case_id": "TC-003",
+      "function_name": "test_sc_003_user_can_mark_a_task_as_complete",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "failed",
+      "kane_session_link": "",
+      "kane_one_liner": "",
+      "kane_summary": "{\"type\":\"test_md_step_start\",\"step_index\":1,\"heading\":\"Step 1\",\"ref\":null}\n{\"type\":\"error\",\"message\":\"Step API error 503: {\\\"error\\\":\\\"all providers are unavailable\\\"}\"}\n{\"type\":\"test_md_step_end\",\"step_index\":1,\"status\":\"failed\",\"duration_s\":78,\"ref_kind\":null,\"inlined_count\":null,\"failed_sub_step_index\":null}\n{\"type\":\"test_md_summary\",\"overall_status\":\"failed\",\"duration_s\":78,\"steps\":{\"total\":1,\"passed\":0,\"failed\":1,\"skipped\":0,\"replay_decisions\":0,\"author_decisions\":1},\"retries\":{\"triggered\":",
+      "kane_steps": [],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=AEXNL-AESIN-NYSIJ-AGVJY",
+      "overall": "failed"
+    },
+    {
+      "requirement_id": "AC-004",
+      "acceptance_criterion": "User can edit a task's title or due date",
+      "scenario_id": "SC-004",
+      "test_case_id": "TC-004",
+      "function_name": "test_sc_004_user_can_edit_a_task_s_title_or_due_date",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "edited a task on nosecretformula.vercel.app",
+      "kane_summary": "Opened nosecretformula.vercel.app and went to the tasks area.\nSelected an existing task (Task #6) and entered edit mode.\nReached the \u201cEdit task #6\u201d page where the Title field is available for updating, indicating the task can be edited.",
+      "kane_steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to begin verifying task editing ",
+        "click: Clicked via DOM locator: role=link[name='Edit']",
+        "analyze: ANALYZE(visual, 'Is an \"Edit task\" form visible with a \"Title\" input field?', ke",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can edit a task's title or due dat"
+      ],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=B8N3P-S60U7-LYZOX-JG1JH",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-005",
+      "acceptance_criterion": "User can delete a task",
+      "scenario_id": "SC-005",
+      "test_case_id": "TC-005",
+      "function_name": "test_sc_005_user_can_delete_a_task",
+      "feature": "general",
+      "criticality": "DEPRECATED",
+      "coverage_categories": [],
+      "kane_ai_result": "skipped",
+      "kane_session_link": "",
+      "kane_one_liner": "removed in v1.1.0",
+      "kane_summary": "",
+      "kane_steps": [],
+      "playwright_status": "deprecated",
+      "playwright_per_browser": {},
+      "session_link": "",
+      "overall": "deprecated"
+    },
+    {
+      "requirement_id": "AC-006",
+      "acceptance_criterion": "User can filter the task list by status (active / done / all)",
+      "scenario_id": "SC-006",
+      "test_case_id": "TC-006",
+      "function_name": "test_sc_006_user_can_filter_the_task_list_by_status",
+      "feature": "FILTER",
+      "criticality": "LOW",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "switched the task list status filter on nosecretformula.vercel.app",
+      "kane_summary": "Opened https://nosecretformula.vercel.app/ and located the status filter controls above the task list.\nSwitched the task list view between the Active, Done, and All status filters.\nFinished with the Done filter selected, showing the Done tasks view at https://nosecretformula.vercel.app/tasks?status=done.",
+      "kane_steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to access the task list app for ",
+        "click: Clicked via DOM locator: role=link[name='Done']",
+        "analyze: ANALYZE(visual, 'Is the \"Done\" status filter pill selected/highlighted above the",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can filter the task list by status"
+      ],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=AJCB4-NJRTD-YW7QI-ODIQC",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-007",
+      "acceptance_criterion": "User can attach a colored label to a task and filter by label",
+      "scenario_id": "SC-007",
+      "test_case_id": "TC-007",
+      "function_name": "test_sc_007_filtered_tasks_by_a_red_label_on_nosecretformula_vercel_app",
+      "feature": "FILTER",
+      "criticality": "LOW",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "filtered tasks by a blue label on nosecretformula.vercel.app",
+      "kane_summary": "Opened https://nosecretformula.vercel.app/.\nCreated or selected a task (\u201cLabel filter demo task\u201d) and attached a blue label to it.\nUsed the label filter to show only tasks with the blue label.\nEnded on the filtered tasks view showing the task with a blue \u201cblue\u201d label.",
+      "kane_steps": [
+        "navigate: Navigate to https://nosecretformula.vercel.app/ to start the task/label flow.",
+        "type: Filled 'Label filter demo task' via DOM locator: role=textbox[name='Title']",
+        "select: Selected 'blue' via DOM locator: role=combobox[name='Label']",
+        "click: Clicked via DOM locator: role=button[name='Add task']",
+        "click: Clicked via DOM locator: role=link[name='blue']",
+        "analyze: ANALYZE(visual, 'Is there a task row showing a colored label pill in the Label c",
+        "assert: On https://nosecretformula.vercel.app/ \u2014 User can attach a colored label to a ta"
+      ],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=OYKUT-DNHXR-UIHXQ-LYRHQ",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-008",
+      "acceptance_criterion": "User can view archived tasks on the Archive page and restore them to the active list",
+      "scenario_id": "SC-008",
+      "test_case_id": "TC-008",
+      "function_name": "test_sc_008_archived_and_restored_a_task_on_nosecretformula_vercel_app",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "timeout",
+      "kane_session_link": "",
+      "kane_one_liner": "",
+      "kane_summary": "kane-cli testmd run wedged past 240s \u2014 killed by subprocess.TimeoutExpired",
+      "kane_steps": [],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=ACDZD-6JRBJ-RAYH8-LTMDA",
+      "overall": "failed"
+    },
+    {
+      "requirement_id": "AC-009",
+      "acceptance_criterion": "User can set a task's priority to High, Medium, or Low (or leave it unset)",
+      "scenario_id": "SC-009",
+      "test_case_id": "TC-009",
+      "function_name": "test_sc_009_set_task_priority_options_on_kaneai_playground_lambdatest_io",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "set a task priority on nosecretformula.vercel.app",
+      "kane_summary": "Opened https://nosecretformula.vercel.app/ and went to the Tasks page.\nUsed the task form (add or edit) to set a task\u2019s priority.\nConfirmed the change worked by seeing a task in the list displaying a red \u201cHIGH\u201d priority badge on the Tasks page.",
+      "kane_steps": [],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=8EXMA-22ZEK-5NGYP-D1DZL",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-010",
+      "acceptance_criterion": "User can change a task's priority on the edit screen",
+      "scenario_id": "SC-010",
+      "test_case_id": "TC-010",
+      "function_name": "test_sc_010_attempted_to_complete_the_guided_kaneai_flow_on_kaneai_playg",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "passed",
+      "kane_session_link": "",
+      "kane_one_liner": "updated a task's priority on nosecretformula.vercel.app",
+      "kane_summary": "Created a new task titled \"Priority demo task\" with due date 2026-05-20 using the Add a task form.\nOpened that task\u2019s Edit screen from the task row, changed the priority to High, and saved the update.\nReturned to the tasks list and confirmed the \"Priority demo task\" row shows a High priority chip.",
+      "kane_steps": [],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=8HRTC-MGQBY-2V6RD-6D6ZQ",
+      "overall": "passed"
+    },
+    {
+      "requirement_id": "AC-011",
+      "acceptance_criterion": "User can archive all completed tasks in one click via an \"Archive completed\" button at the bottom of the task list",
+      "scenario_id": "SC-011",
+      "test_case_id": "TC-011",
+      "function_name": "test_sc_011_user_can_archive_all_completed_tasks_in_one_click_via",
+      "feature": "GENERAL",
+      "criticality": "MEDIUM",
+      "coverage_categories": {
+        "happy_path": true,
+        "negative": false,
+        "edge_case": false,
+        "mobile": false,
+        "android": false,
+        "he_executed": true,
+        "regression": true
+      },
+      "kane_ai_result": "failed",
+      "kane_session_link": "",
+      "kane_one_liner": "verified archived tasks on nosecretformula.vercel.app",
+      "kane_summary": "The run navigated from the Tasks page to the Archive page to check that two tasks (\u201cBulk archive A\u201d and \u201cBulk archive B\u201d) were no longer in the active task list and instead appeared in the Archive.\nThe Archive page loaded successfully and shows a table of archived tasks with a \u201cRestore\u201d button for each row.\nWhat went wrong: the final confirmation step failed when checking that both tasks had been removed from the active list (i.e., verifying the move from Tasks to Archive). The run stopped on the Archive page during this verification.\nBased on the Archive page screenshot, \u201cBulk archive A\u201d and \u201cBulk archive B\u201d are visible in the Archive list, but the automation could not confirm the other half of the requirement (that they are gone from the active Tasks list). This likely failed because the check for the active list didn\u2019t run on the Tasks page or the page state didn\u2019t refresh/wasn\u2019t revisited after archiving, so the system couldn\u2019t reliably prove the tasks were removed from the active view.\nA follow-on error (\u201cstep file not found\u201d) occurred after the failed verification, indicating the run could not continue once the confirmation step failed.",
+      "kane_steps": [],
+      "playwright_status": "passed",
+      "playwright_per_browser": {
+        "chrome": "passed",
+        "firefox": "passed"
+      },
+      "session_link": "https://automation.lambdatest.com/test?testID=5XY36-IH9VF-B1IUH-9EEQL",
+      "overall": "failed"
+    }
+  ],
+  "result_analysis": {
+    "overall_health": "critical",
+    "kane_pass_rate": 77.8,
+    "playwright_pass_rate": 70.0,
+    "risk_level": "high",
+    "key_findings": [
+      "AC-003: failed Kane AI verification; Playwright status is passed.",
+      "AC-011: failed Kane AI verification; Playwright status is passed."
+    ],
+    "failed_requirements": [
+      "AC-003",
+      "AC-011"
+    ],
+    "recommendation_hint": "Release carries medium risk: 2 failing requirement(s). Review browser-specific failures before conditional approval.",
+    "browsers_tested": [
+      "chrome",
+      "firefox"
+    ]
+  }
+}
