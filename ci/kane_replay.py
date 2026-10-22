@@ -22,6 +22,8 @@ from pathlib import Path
 from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).parent))
+import project_config  # noqa: E402  (kaneai.adaptive_heal)
 
 # Mirror of the EXIT_STATUS map in analyze_requirements.py — kept local so
 # this module stays self-contained.
@@ -77,6 +79,33 @@ def _build_caps(session_name: str, build_name: str, *, username: str, access_key
     )
 
 
+_FM_RE = re.compile(r"^---\s*\n(.*?)\n---", re.S)
+
+
+def _frontmatter_int(asset_path: Path, key: str) -> int | None:
+    """Read an integer key (max_steps, timeout) from the asset's YAML frontmatter, if any."""
+    try:
+        m = _FM_RE.match(asset_path.read_text(encoding="utf-8", errors="replace"))
+    except OSError:
+        return None
+    if not m:
+        return None
+    for line in m.group(1).splitlines():
+        k, _, v = line.partition(":")
+        if k.strip() == key:
+            try:
+                return int(v.strip())
+            except ValueError:
+                return None
+    return None
+
+
+def _effective_timeout(asset_path: Path, pipeline_timeout: int) -> int:
+    """Never cut an asset shorter than its own declared timeout."""
+    declared = _frontmatter_int(asset_path, "timeout")
+    return max(pipeline_timeout, declared or 0)
+
+
 def replay(
     asset_path: Path,
     *,
@@ -111,8 +140,13 @@ def replay(
         "--ws-endpoint", ws_endpoint,
         "--agent",
         "--headless",
-        "--timeout", str(timeout_seconds),
-        "--max-steps", "30",
+        "--timeout", str(_effective_timeout(asset_path, timeout_seconds)),
+    ]
+    # Ingested assets declare their own step budget in frontmatter (everdemo:
+    # 30–80). Only impose the pipeline default when the asset is silent.
+    if _frontmatter_int(asset_path, "max_steps") is None:
+        command += ["--max-steps", os.environ.get("KANE_REPLAY_MAX_STEPS", "30")]
+    command += [
         # Note: --retry and --on-lock-conflict were removed because Kane 0.3.1
         # on Windows rejects them with "--retry requires basic auth credentials
         # for the lock API" even when --username/--access-key are passed
@@ -125,17 +159,25 @@ def replay(
     if code_export_dir is not None:
         code_export_dir.mkdir(parents=True, exist_ok=True)
         command.extend(["--code-export", "--code-language", "python", "--skip-code-validation"])
+    # A replay miss is a finding, not something to heal silently — unless the
+    # project opts in via `kaneai.adaptive_heal: true`.
+    if not project_config.adaptive_heal():
+        command.append("--no-adaptive-heal")
 
     started = time.time()
     # Subprocess-level timeout = Kane's --timeout + a 60s safety margin so
     # a hung CLI doesn't pin a worker thread forever (the smoke-test on
     # 2026-05-15 ran for an hour with --timeout=180 set on Kane itself,
     # confirming Kane can ignore its own timeout flag).
+    #
+    # cwd=REPO_ROOT so kane-cli auto-loads `{cwd}/.testmuai/variables/*.json`
+    # and resolves the asset's sibling `output-<stem>/` sidecar (TMS reuse).
     try:
         completed = subprocess.run(
             command, capture_output=True, text=True, check=False,
             encoding="utf-8", errors="replace",
-            timeout=timeout_seconds + 60,
+            timeout=_effective_timeout(asset_path, timeout_seconds) + 60,
+            cwd=str(REPO_ROOT),
         )
     except subprocess.TimeoutExpired as exc:
         return {
@@ -147,7 +189,96 @@ def replay(
             "code_export_dir": str(code_export_dir) if code_export_dir else "",
         }
     duration = time.time() - started
-    return _parse_kane_output(completed, duration, code_export_dir)
+    result = _parse_kane_output(completed, duration, code_export_dir)
+    # Evidence links: the Automate session Kane drove (video/logs) and the TMS case
+    # the asset belongs to. Neither is in kane-cli's NDJSON, so resolve them here.
+    result["lt_build_name"] = build_name
+    result["lt_session_name"] = session_name
+    result["tms_case_url"] = _tms_case_url(asset_path)
+    if not result.get("test_url"):
+        result.update({k: v for k, v in
+                       _resolve_automate_session(build_name, session_name, started, username, access_key).items()
+                       if v})
+    return result
+
+
+_AUTOMATE_API = "https://api.lambdatest.com/automation/api/v1"
+_TMS_UI = "https://test-manager.lambdatest.com"
+
+
+def _asset_stem(asset_path: Path) -> str:
+    name = asset_path.name
+    return name[: -len("_test.md")] if name.endswith("_test.md") else asset_path.stem
+
+
+def _tms_case_url(asset_path: Path) -> str:
+    """Test Manager case page for an ingested asset, from its `output-<stem>/.internal/meta.json`
+    sidecar (project_id + testcase_id). Empty when the asset has no sidecar (pipeline-recorded)."""
+    meta = asset_path.parent / f"output-{_asset_stem(asset_path)}" / ".internal" / "meta.json"
+    try:
+        m = json.loads(meta.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return ""
+    project_id, case_id = m.get("project_id", ""), m.get("testcase_id", "")
+    return f"{_TMS_UI}/projects/{project_id}/test-cases/{case_id}" if project_id and case_id else ""
+
+
+def _lt_get(url: str, username: str, access_key: str, timeout: int = 20) -> dict:
+    import base64
+    import urllib.request
+    token = base64.b64encode(f"{username}:{access_key}".encode()).decode()
+    req = urllib.request.Request(url, headers={"Authorization": f"Basic {token}", "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def _resolve_automate_session(build_name: str, session_name: str, started_epoch: float,
+                              username: str, access_key: str) -> dict[str, str]:
+    """Find the LambdaTest Automate session a replay ran in (Kane drives the cloud
+    browser through --ws-endpoint, so every replay is a real Automate session with
+    video + logs). kane-cli's NDJSON never reports the test id, so look it up by
+    build name + session name, newest session started after `started_epoch`.
+    Returns {} on any API problem — links are a nicety, never a gate."""
+    if not (username and access_key and build_name and session_name):
+        return {}
+    try:
+        builds = _lt_get(f"{_AUTOMATE_API}/builds?limit=40", username, access_key).get("data", [])
+        build_ids = sorted((b["build_id"] for b in builds if b.get("name") == build_name), reverse=True)
+        floor = started_epoch - 120
+        best: dict = {}
+        for build_id in build_ids[:3]:
+            offset = 0
+            while True:
+                page = _lt_get(f"{_AUTOMATE_API}/sessions?build_id={build_id}&limit=100&offset={offset}",
+                               username, access_key)
+                rows = page.get("data", [])
+                for s in rows:
+                    if (s.get("name") or "").strip() != session_name.strip():
+                        continue
+                    try:
+                        created = datetime.strptime(s.get("create_timestamp", ""), "%Y-%m-%d %H:%M:%S") \
+                            .replace(tzinfo=timezone.utc).timestamp()
+                    except ValueError:
+                        created = 0
+                    if created >= floor and created >= best.get("_created", -1):
+                        best = {**s, "_created": created}
+                total = ((page.get("Meta") or page.get("meta") or {}).get("result_set") or {}).get("total", 0)
+                offset += len(rows)
+                if not rows or offset >= total:
+                    break
+            if best:
+                break
+        if not best:
+            return {}
+        test_id = best.get("test_id") or best.get("session_id") or ""
+        return {
+            "test_url": f"https://automation.lambdatest.com/test?testID={test_id}" if test_id else "",
+            "lt_test_id": test_id,
+            "video_url": best.get("video_url") or "",
+        }
+    except Exception as exc:  # noqa: BLE001 — never fail a replay over a link lookup
+        print(f"    [kane_replay] automate session lookup skipped: {exc}", file=sys.stderr)
+        return {}
 
 
 def _make_skipped_result(message: str) -> dict[str, Any]:
@@ -172,10 +303,16 @@ def _parse_kane_output(completed: subprocess.CompletedProcess, duration: float, 
     exit_status = EXIT_STATUS.get(completed.returncode, "error")
     combined = completed.stdout + "\n" + completed.stderr
 
-    run_end: dict | None = None
-    step_summaries: list[str] = []
+    run_end: dict | None = None          # last run_end (one per test.md section)
+    run_ends: list[dict] = []
+    step_summaries: list[str] = []       # every action: "<kind>: <text>"
+    sections: list[dict] = []            # test.md sections: heading, status, duration_s
+    md_summary: dict | None = None       # test_md_summary (commit / heal / decisions)
+    md_done: dict | None = None          # test_md_done (overall_status, wall-clock, session)
     session_id = ""
     discovered_export_dir = ""
+    assertions_passed = 0
+    assertions_failed = 0
 
     for raw in combined.splitlines():
         stripped = raw.strip()
@@ -188,10 +325,31 @@ def _parse_kane_output(completed: subprocess.CompletedProcess, duration: float, 
 
         if event is not None:
             event_type = event.get("type", "")
-            if event_type in ("step_end", "stepEnd") and event.get("summary"):
-                step_summaries.append(event["summary"])
+            if event_type in ("step_end", "stepEnd"):
+                if event.get("summary"):
+                    step_summaries.append(event["summary"])
+                if event.get("kind") == "assert":
+                    if event.get("status") == "passed":
+                        assertions_passed += 1
+                    else:
+                        assertions_failed += 1
+            elif event_type == "test_md_step_start":
+                sections.append({"index": event.get("step_index"), "heading": event.get("heading") or "",
+                                 "status": "", "duration_s": None})
+            elif event_type == "test_md_step_end":
+                idx = event.get("step_index")
+                for sec in reversed(sections):
+                    if sec["index"] == idx:
+                        sec["status"] = event.get("status", "")
+                        sec["duration_s"] = event.get("duration_s")
+                        break
+            elif event_type == "test_md_summary":
+                md_summary = event
+            elif event_type == "test_md_done":
+                md_done = event
             elif event_type in ("run_end", "runEnd"):
                 run_end = event
+                run_ends.append(event)
                 session_id = (
                     event.get("session_id")
                     or event.get("sessionId")
@@ -211,6 +369,8 @@ def _parse_kane_output(completed: subprocess.CompletedProcess, duration: float, 
             if m:
                 session_id = m.group(0)
 
+    export_dir = discovered_export_dir or (str(code_export_dir) if code_export_dir else "")
+
     if not run_end:
         diagnostic = combined.strip()[:500] or "Kane CLI produced no output."
         return {
@@ -218,24 +378,79 @@ def _parse_kane_output(completed: subprocess.CompletedProcess, duration: float, 
             "summary": diagnostic,
             "one_liner": "",
             "steps": step_summaries,
+            "sections": sections,
             "final_state": {},
             "duration": round(duration, 2),
             "test_url": "",
             "session_id": session_id,
-            "code_export_dir": discovered_export_dir or (str(code_export_dir) if code_export_dir else ""),
+            "code_export_dir": export_dir,
         }
 
+    # Overall status: the test.md verdict outranks the last section's run_end.
+    status = (md_done or {}).get("overall_status") or run_end.get("status", exit_status)
+    # Wall-clock: test_md_done.duration_s is the whole replay; run_end.duration is one section.
+    wall = (md_done or {}).get("duration_s") or round(duration, 2)
+
+    # Kane writes prose (summary / one_liner) only when it has something to say —
+    # a failure verdict, a heal, a bug report. A clean deterministic replay
+    # emits summary "" on every section, so synthesise the observation from
+    # what it did emit; keep Kane's own words whenever they exist.
+    kane_summary = (run_end.get("summary") or "").strip()
+    kane_one_liner = (run_end.get("one_liner") or "").strip()
+    if not kane_summary or not kane_one_liner:
+        syn_summary, syn_one_liner = _synthesize_observation(
+            status=status, sections=sections, run_ends=run_ends, md_summary=md_summary,
+            wall_s=wall, assertions_passed=assertions_passed, assertions_failed=assertions_failed,
+            actions=len(step_summaries),
+        )
+        kane_summary = kane_summary or syn_summary
+        kane_one_liner = kane_one_liner or syn_one_liner
+
     return {
-        "status": run_end.get("status", exit_status),
-        "summary": run_end.get("summary", ""),
-        "one_liner": run_end.get("one_liner", ""),
+        "status": status,
+        "summary": kane_summary,
+        "one_liner": kane_one_liner,
         "steps": step_summaries,
+        "sections": sections,
+        "assertions": {"passed": assertions_passed, "failed": assertions_failed},
         "final_state": run_end.get("final_state", {}),
-        "duration": run_end.get("duration") or round(duration, 2),
+        "final_url": run_end.get("final_url", ""),
+        "duration": wall,
         "test_url": run_end.get("test_url", ""),
         "session_id": session_id,
-        "code_export_dir": discovered_export_dir or (str(code_export_dir) if code_export_dir else ""),
+        "code_export_dir": export_dir,
     }
+
+
+def _synthesize_observation(*, status: str, sections: list[dict], run_ends: list[dict], md_summary: dict | None,
+                            wall_s: Any, assertions_passed: int, assertions_failed: int, actions: int) -> tuple[str, str]:
+    """Build (summary, one_liner) from Kane's structured events for runs where it wrote no prose."""
+    total = len(sections)
+    passed = sum(1 for s in sections if s.get("status") == "passed")
+    failed = [s for s in sections if s.get("status") and s.get("status") != "passed"]
+    final_url = (run_ends[-1].get("final_url") or "") if run_ends else ""
+    steps_word = f"{passed}/{total} sections" if total else f"{actions} actions"
+    decisions = ((md_summary or {}).get("steps") or {}) if isinstance((md_summary or {}).get("steps"), dict) else {}
+    replayed = decisions.get("replay_decisions")
+    authored = decisions.get("author_decisions")
+    mode = ""
+    if replayed is not None and authored is not None:
+        mode = "deterministic replay of the recorded actions" if not authored else f"{authored} section(s) re-authored, {replayed} replayed"
+    asserts = f"{assertions_passed} assertion(s) passed" + (f", {assertions_failed} failed" if assertions_failed else "")
+
+    if status == "passed":
+        one_liner = f"Replayed {steps_word} in {wall_s}s — {asserts}" + (f"; ended on {final_url}" if final_url else "")
+    else:
+        first_fail = failed[0]["heading"] if failed else "unknown section"
+        one_liner = f"{status.capitalize()} at “{first_fail}” — {passed}/{total} sections passed, {asserts}"
+
+    lines = [one_liner + (f" ({mode})." if mode else ".")]
+    for s in sections:
+        mark = "✓" if s.get("status") == "passed" else ("✗" if s.get("status") else "…")
+        dur = f" ({s['duration_s']}s)" if s.get("duration_s") is not None else ""
+        heading = s.get("heading") or f"section {s.get('index')}"
+        lines.append(f"{mark} {heading}{dur}")
+    return "\n".join(lines), one_liner
 
 
 def main() -> int:

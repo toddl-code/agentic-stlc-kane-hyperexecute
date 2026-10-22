@@ -3,7 +3,7 @@ Enterprise Requirement Coverage Analysis Engine.
 
 Reads real pipeline artifacts to compute:
   - Per-requirement coverage status: FULL / PARTIAL / NONE
-  - Coverage categories: happy_path, negative, edge_case, mobile, android, he_executed, regression
+  - Coverage categories: happy_path, negative, edge_case, he_executed, regression
   - Flakiness: retries > 0 or mixed status across browsers
   - Missing scenario types vs. a feature-level risk model
   - Risk level per requirement: HIGH / MEDIUM / LOW
@@ -28,24 +28,21 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from stage_utils import print_stage_header, print_stage_result
+from project_config import (
+    classify_feature,
+    deprecated_by_requirement,
+    feature_taxonomy,
+    group_scenarios_by_requirement,
+)
 
-# ── Feature taxonomy (TaskFlow) ──────────────────────────────────────────────
-# Maps feature name → keywords to detect in requirement text.
-# Order matters: more specific features (ARCHIVE, LABELS) are checked before
-# generic ones (TASK_CRUD, TASK_LIST) so "archive task" doesn't get classified
-# as TASK_CRUD just because it mentions "task".
-FEATURE_KEYWORDS: dict[str, list[str]] = {
-    "ARCHIVE":   ["archive", "restore", "archived"],
-    "LABELS":    ["label", "colored label", "color label", "tag"],
-    "FILTER":    ["filter", "status filter", "active / done", "active/done"],
-    "TASK_LIST": ["list all tasks", "ordered by due date", "task list",
-                  "overdue", "pinned", "sort by due"],
-    "TASK_CRUD": ["create a task", "add a task", "new task",
-                  "edit a task", "edit task", "update a task",
-                  "delete a task", "remove a task",
-                  "mark a task as complete", "complete a task",
-                  "task title", "due date"],
-}
+# ── Feature taxonomy ─────────────────────────────────────────────────────────
+# Single source: agentic-stlc.config.yaml `features:` (TaskFlow fallback when
+# absent) via project_config.feature_taxonomy(). The module-level names are
+# kept as aliases so existing importers keep working.
+#   FEATURE_CRITICALITY  feature → HIGH | MEDIUM | LOW
+#   FEATURE_KEYWORDS     feature → keywords detected in requirement text
+#   EXPECTED_SCENARIOS   feature → expected scenario types (static risk model)
+FEATURE_CRITICALITY, FEATURE_KEYWORDS, EXPECTED_SCENARIOS = feature_taxonomy()
 
 # ── Coverage category detection keywords ─────────────────────────────────────
 _NEGATIVE_KEYWORDS = frozenset([
@@ -62,52 +59,6 @@ _SECURITY_KEYWORDS = frozenset([
     "xss", "sql inject", "brute force", "unauthorized access", "csrf",
     "privilege escalation", "bypass", "tamper",
 ])
-_MOBILE_BROWSERS = frozenset(["android", "ios", "safari_mobile", "mobile"])
-_ANDROID_BROWSERS = frozenset(["android"])
-
-# ── Business criticality (TaskFlow) ──────────────────────────────────────────
-# TASK_CRUD / TASK_LIST / ARCHIVE are HIGH because they are the primary user
-# workflows of the app under test. FILTER and LABELS are MEDIUM because they
-# refine the core experience but losing them doesn't break it.
-FEATURE_CRITICALITY: dict[str, str] = {
-    "TASK_CRUD": "HIGH",
-    "TASK_LIST": "HIGH",
-    "ARCHIVE":   "HIGH",
-    "FILTER":    "MEDIUM",
-    "LABELS":    "MEDIUM",
-}
-
-# ── Expected scenario types per feature (static risk model) ──────────────────
-# Drives gap detection: which scenario types SHOULD exist but don't.
-EXPECTED_SCENARIOS: dict[str, list[dict]] = {
-    "TASK_CRUD": [
-        {"type": "happy_path", "description": "Create a task with a title and due date"},
-        {"type": "happy_path", "description": "Edit a task's title or due date"},
-        {"type": "happy_path", "description": "Mark a task as complete"},
-        {"type": "happy_path", "description": "Delete a task"},
-        {"type": "negative",   "description": "Submit task form with empty title"},
-        {"type": "edge_case",  "description": "Create a task with a past-due date"},
-    ],
-    "TASK_LIST": [
-        {"type": "happy_path", "description": "List all tasks ordered by due date"},
-        {"type": "happy_path", "description": "Overdue tasks appear pinned at the top"},
-        {"type": "edge_case",  "description": "List view when no tasks exist"},
-    ],
-    "ARCHIVE": [
-        {"type": "happy_path", "description": "Archive a task and confirm it moves to Archive page"},
-        {"type": "happy_path", "description": "Restore an archived task back to the active list"},
-        {"type": "edge_case",  "description": "Archive page is empty"},
-    ],
-    "FILTER": [
-        {"type": "happy_path", "description": "Filter task list by status (active / done / all)"},
-        {"type": "negative",   "description": "Apply filter that produces no results"},
-    ],
-    "LABELS": [
-        {"type": "happy_path", "description": "Attach a colored label to a task"},
-        {"type": "happy_path", "description": "Filter tasks by label"},
-        {"type": "negative",   "description": "Filter by a label with no tasks attached"},
-    ],
-}
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -122,15 +73,10 @@ def _load_json(path: str, default):
         return default
 
 
-def _classify_feature(text: str) -> str:
-    """Pick the best-matching feature for a requirement based on keyword density."""
-    text_lower = text.lower()
-    best_feature, best_count = "GENERAL", 0
-    for feature, keywords in FEATURE_KEYWORDS.items():
-        count = sum(1 for kw in keywords if kw in text_lower)
-        if count > best_count:
-            best_count, best_feature = count, feature
-    return best_feature
+def _classify_feature(text: str, explicit: str | None = None) -> str:
+    """Feature for a requirement: the explicit scenario feature wins; otherwise
+    keyword classification of the requirement text (project_config)."""
+    return classify_feature(text, explicit=explicit)
 
 
 def _compute_risk_level(
@@ -223,14 +169,9 @@ def analyze(
     normalized_raw   = _load_json(normalized_path, {})
     normalized       = normalized_raw.get("results", [])
 
-    # Build lookup tables
-    scenarios_by_req: dict[str, list[dict]] = {}
-    deprecated_by_req: dict[str, list[dict]] = {}
-    for sc in scenarios:
-        if sc.get("status") == "deprecated":
-            deprecated_by_req.setdefault(sc.get("requirement_id", ""), []).append(sc)
-        else:
-            scenarios_by_req.setdefault(sc.get("requirement_id", ""), []).append(sc)
+    # Build lookup tables — requirement_id → [scenario, ...] (many-to-one)
+    scenarios_by_req  = group_scenarios_by_requirement(scenarios)
+    deprecated_by_req = deprecated_by_requirement(scenarios)
 
     results_by_sc: dict[str, list[dict]] = {}
     for r in normalized:
@@ -242,16 +183,21 @@ def analyze(
 
     # Aggregate counters
     cnt_full = cnt_partial = cnt_none = 0
-    cnt_negative = cnt_he = cnt_mobile = cnt_android = 0
+    cnt_negative = cnt_he = 0
 
     for req in requirements:
         req_id      = req.get("id", "")
         description = req.get("description", "")
         kane_status = req.get("kane_status", "unknown")
-        feature     = _classify_feature(description)
 
         mapped_scenarios = scenarios_by_req.get(req_id, [])
         sc_ids = [s["id"] for s in mapped_scenarios]
+
+        # Explicit feature from the first mapped scenario (ingested assets
+        # carry one); generated 1:1 scenarios don't, so fall back to keyword
+        # classification of the requirement text.
+        first_sc = mapped_scenarios[0] if mapped_scenarios else (deprecated_by_req.get(req_id) or [{}])[0]
+        feature  = _classify_feature(description, explicit=first_sc.get("feature"))
 
         # Deprecated tombstone: the AC line is still in taskflow.txt but its
         # only scenario was tombstoned by a release_diff DELETE op (v1.1.0
@@ -299,8 +245,6 @@ def analyze(
 
         # Browser coverage
         browsers_run = {r.get("browser", "") for r in live_results}
-        has_mobile   = bool(browsers_run & _MOBILE_BROWSERS)
-        has_android  = bool(browsers_run & _ANDROID_BROWSERS)
         he_executed  = any(r.get("session_link") for r in all_results)
 
         # Flakiness
@@ -318,8 +262,6 @@ def analyze(
             "negative":        has_negative,
             "edge_case":       has_edge,
             "security":        has_security,
-            "mobile":          has_mobile,
-            "android":         has_android,
             "he_executed":     he_executed,
             "regression":      exec_total > 0,
             "api_integration": False,
@@ -342,8 +284,6 @@ def analyze(
 
         if has_negative:  cnt_negative += 1
         if he_executed:   cnt_he       += 1
-        if has_mobile:    cnt_mobile   += 1
-        if has_android:   cnt_android  += 1
 
         # Risk level
         has_failures = exec_failed > 0 or kane_status == "failed"
@@ -438,8 +378,6 @@ def analyze(
         "any_coverage_pct":     _pct(cnt_full + cnt_partial),
         "negative_coverage_pct": _pct(cnt_negative),
         "he_coverage_pct":      _pct(cnt_he),
-        "mobile_coverage_pct":  _pct(cnt_mobile),
-        "android_coverage_pct": _pct(cnt_android),
         "flaky_count":          len(flaky_requirements),
         "high_risk_count":      sum(1 for r in coverage_records if r["risk_level"] == "HIGH"),
         "medium_risk_count":    sum(1 for r in coverage_records if r["risk_level"] == "MEDIUM"),
@@ -497,7 +435,6 @@ def analyze(
         "Uncovered":              cnt_none,
         "Negative coverage":      f"{summary['negative_coverage_pct']}%",
         "HyperExecute coverage":  f"{summary['he_coverage_pct']}%",
-        "Mobile coverage":        f"{summary['mobile_coverage_pct']}%",
         "Flaky requirements":     len(flaky_requirements),
         "High-risk requirements": summary["high_risk_count"],
         "Missing scenario types": summary["missing_scenario_types"],
@@ -523,8 +460,6 @@ def _write_markdown(records: list, summary: dict, feature_rollup: dict) -> None:
         f"| Partially Covered | {summary['covered_partial']} |",
         f"| Uncovered | {summary['uncovered']} |",
         f"| Negative Test Coverage | {summary['negative_coverage_pct']}% |",
-        f"| Mobile Coverage | {summary['mobile_coverage_pct']}% |",
-        f"| Android Coverage | {summary['android_coverage_pct']}% |",
         f"| HyperExecute Coverage | {summary['he_coverage_pct']}% |",
         f"| Flaky Requirements | {summary['flaky_count']} |",
         f"| High-Risk Requirements | {summary['high_risk_count']} |",
@@ -587,10 +522,10 @@ def _write_markdown(records: list, summary: dict, feature_rollup: dict) -> None:
             f"- **Flaky:** {'YES — ' + str(r['retry_count']) + ' retries' if r['flaky'] else 'no'}",
             "",
             "**Coverage Categories:**",
-            f"| Happy Path | Negative | Edge Case | Mobile | Android | HyperExecute | Regression |",
-            f"|------------|----------|-----------|--------|---------|--------------|------------|",
+            f"| Happy Path | Negative | Edge Case | HyperExecute | Regression |",
+            f"|------------|----------|-----------|--------------|------------|",
             f"| {yes(cats['happy_path'])} | {yes(cats['negative'])} | {yes(cats['edge_case'])} "
-            f"| {yes(cats['mobile'])} | {yes(cats['android'])} | {yes(cats['he_executed'])} "
+            f"| {yes(cats['he_executed'])} "
             f"| {yes(cats['regression'])} |",
             "",
             f"**Execution:** {es['total']} total | {es['passed']} passed | "
